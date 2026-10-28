@@ -1,0 +1,119 @@
+# castlDDL configuration.
+#
+# Each research direction selects venues from ccfddl
+# (https://github.com/ccfddl/ccf-deadlines/tree/main/conference):
+#   subs:   every venue in a ccfddl category (DB, DS, SC, ...)
+#   venues: single venues, written as <category>/<file name without .yml>
+# `short` and `short_zh` label the filter buttons on the site.
+# A venue can belong to more than one direction. The first direction that
+# lists a venue sets its color on the site.
+#
+# Venues that ccfddl does not have go in extra.yml.
+# After you change this file, the GitHub Action rebuilds the site.
+
+repo: https://github.com/CarsonOvO/castlDDL
+
+# Editions older than this many years before the current year are dropped.
+years_back: 1
+
+directions:
+  - id: db
+    short: Databases & big data
+    short_zh: 数据库与大数据
+    name: Database systems, big data analytics and social networks
+    name_zh: 数据库、大数据分析与社交网络
+    subs: [DB]
+    venues: [MX/bigdata, MX/www, MX/sigspatial, HI/icwsm]
+
+  - id: cloud
+    short: Cloud & distributed
+    short_zh: 云与分布式
+    name: Cloud computing, parallel and distributed systems
+    name_zh: 云计算、并行与分布式系统
+    venues:
+      - DS/atc
+      - DS/eurosys
+      - DS/socc
+      - DS/asplos
+      - DS/icdcs
+      - DS/ccgrid
+      - DS/cluster
+      - DS/europar
+      - DS/icpp
+      - DS/icpads
+      - DS/ipdps
+      - DS/ispa
+      - DS/ica3pp
+      - DS/hpdc
+      - DS/podc
+      - DS/spaa
+      - DS/jcc
+      - DS/sec
+      - DS/netys
+      - DS/pdcat
+      - DS/apsys
+      - DS/vee
+      - DS/lisa
+      - DS/sigmetrics
+      - DS/performance
+      - SE/osdi
+      - SE/sosp
+      - SE/middleware
+      - SE/hotos
+      - NW/nsdi
+      - MX/cloud
+      - MX/mlsys
+
+  - id: security
+    short: Security & privacy
+    short_zh: 安全与隐私
+    name: Security and privacy for cloud and network systems
+    name_zh: 云和网络系统的安全与隐私
+    subs: [SC]
+
+  - id: storage
+    short: Storage & parallel I/O
+    short_zh: 存储与并行 I/O
+    name: Parallel I/O, file and storage systems
+    name_zh: 并行 I/O、文件与存储系统
+    venues:
+      - DS/fast
+      - DS/msst
+      - DS/systor
+      - DS/hotstorage
+      - DS/atc
+      - DS/eurosys
+      - SE/osdi
+      - SE/sosp
+      - DS/sc
+      - DS/hpdc
+      - DS/cluster
+      - DS/ipdps
+      - DS/ics
+
+  - id: hpc
+    short: HPC & computational science
+    short_zh: 高性能与计算科学
+    name: High performance computing, computational biology and geoscience
+    name_zh: 高性能计算、计算生物学与地球科学
+    venues:
+      - DS/sc
+      - DS/hpdc
+      - DS/ics
+      - DS/ppopp
+      - DS/ipdps
+      - DS/cluster
+      - DS/icpp
+      - DS/europar
+      - DS/hpcc
+      - DS/hipeac
+      - DS/pact
+      - DS/spaa
+      - DS/cgo
+      - SE/ispass
+      - MX/recomb
+      - MX/ismb
+      - MX/bibm
+      - MX/apbc
+      - MX/isbra
+      - MX/sigspatial

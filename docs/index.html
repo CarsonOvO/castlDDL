@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>castlDDL</title>
+<meta name="description" content="Conference deadlines for the lab's research directions, as a calendar, with countdowns in your local time.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='5' width='26' height='24' rx='4' fill='%232747C6'/%3E%3Crect x='3' y='5' width='26' height='7' rx='3' fill='%23141A26'/%3E%3Ctext x='16' y='26' font-family='Arial' font-size='12' font-weight='700' text-anchor='middle' fill='white'%3EDDL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>castl<span>DDL</span></h1>
+      <p class="sub" data-i18n="subtitle"></p>
+    </div>
+    <button id="langBtn" class="btn" type="button"></button>
+  </header>
+
+  <section class="filters" aria-label="Filters">
+    <div class="frow">
+      <span class="flabel" data-i18n="directions"></span>
+      <div id="dirChips" class="chips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel" data-i18n="rank"></span>
+      <div id="rankChips" class="chips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel" data-i18n="show"></span>
+      <div id="kindChips" class="chips"></div>
+    </div>
+    <div class="frow">
+      <span class="flabel" data-i18n="find"></span>
+      <div class="chips">
+        <input id="search" class="search" type="search" autocomplete="off">
+        <button id="starOnly" class="fchip star" type="button" aria-pressed="false"><span aria-hidden="true">★</span> <span data-i18n="starredOnly"></span></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="monthnav" id="monthNav">
+      <button id="prevBtn" class="iconbtn" type="button">‹</button>
+      <h2 id="monthLabel"></h2>
+      <button id="nextBtn" class="iconbtn" type="button">›</button>
+      <button id="todayBtn" class="btn" type="button" data-i18n="thisMonth"></button>
+    </div>
+    <div class="seg">
+      <button id="viewMonth" type="button" aria-pressed="true" data-i18n="month"></button>
+      <button id="viewList" type="button" aria-pressed="false" data-i18n="list"></button>
+    </div>
+  </div>
+  <div class="legend" id="legend" aria-hidden="true"></div>
+
+  <main class="layout">
+    <section>
+      <div id="monthView">
+        <div id="cal" class="cal"></div>
+        <div id="dayPanel" class="daypanel" hidden></div>
+      </div>
+      <div id="listView" class="listview" hidden></div>
+    </section>
+    <aside class="rail">
+      <section>
+        <h3 data-i18n="upcoming"></h3>
+        <ol id="upcoming" class="uplist"></ol>
+      </section>
+      <section class="subscribe">
+        <h3 data-i18n="subscribe"></h3>
+        <p class="hint" data-i18n="subscribeHint"></p>
+        <ul id="feeds" class="feeds"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer id="footer" class="foot"></footer>
+</div>
+
+<div id="sheet" class="sheet" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="phead">
+      <div class="phead-text"><h2 id="sheetTitle"></h2><p id="sheetSub"></p></div>
+      <button class="iconbtn" type="button" data-close id="sheetClose">×</button>
+    </div>
+    <div id="sheetBody" class="pbody"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//castlDDL//deadlines//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:castlDDL - High performance computing\, computational biology 
+ and geoscience
+X-PUBLISHED-TTL:PT12H
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:DS-ics-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261202T115959Z
+DTEND:20261202T115959Z
+SUMMARY:ICS 2027 abstract deadline
+DESCRIPTION:ACM International Conference on Supercomputing\nCCF B\nPublishe
+ d deadline: 2026-12-01 23:59 AoE\nhttps://ics-conference.org/index.html
+URL:https://ics-conference.org/index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-ics-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261208T115959Z
+DTEND:20261208T115959Z
+SUMMARY:ICS 2027 paper deadline
+DESCRIPTION:ACM International Conference on Supercomputing\nCCF B\nPublishe
+ d deadline: 2026-12-07 23:59 AoE\nhttps://ics-conference.org/index.html
+URL:https://ics-conference.org/index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-ipdps-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261002T115959Z
+DTEND:20261002T115959Z
+SUMMARY:IPDPS 2027 abstract deadline
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposiu
+ m\nCCF B\nPublished deadline: 2026-10-01 23:59 AoE\nhttps://www.ipdps.org/
+URL:https://www.ipdps.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-ipdps-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261009T115959Z
+DTEND:20261009T115959Z
+SUMMARY:IPDPS 2027 paper deadline
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposiu
+ m\nCCF B\nPublished deadline: 2026-10-08 23:59 AoE\nhttps://www.ipdps.org/
+URL:https://www.ipdps.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:MX-ismb-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270115T115900Z
+DTEND:20270115T115900Z
+SUMMARY:ISMB 2027 paper deadline (Proceedings\; conditional acceptance: Mar
+ ch 2\, 2027\; revised papers due: March 18\, 2027\, 23:59 AoE\; no extensi
+ ons to submission or revision deadlines)
+DESCRIPTION:International Conference on Intelligent Systems for Molecular B
+ iology\nCCF B\nPublished deadline: 2027-01-14 23:59 AoE\nhttps://www.iscb.
+ org/ismbeccb2027/
+URL:https://www.iscb.org/ismbeccb2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:MX-recomb-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261029T115959Z
+DTEND:20261029T115959Z
+SUMMARY:RECOMB 2027 abstract deadline
+DESCRIPTION:International Conference on Research inComputational Molecular 
+ Biology\nCCF B\nPublished deadline: 2026-10-28 23:59 AoE\nhttps://recomb.o
+ rg/recomb2027/
+URL:https://recomb.org/recomb2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:MX-recomb-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261105T115959Z
+DTEND:20261105T115959Z
+SUMMARY:RECOMB 2027 paper deadline
+DESCRIPTION:International Conference on Research inComputational Molecular 
+ Biology\nCCF B\nPublished deadline: 2026-11-04 23:59 AoE\nhttps://recomb.o
+ rg/recomb2027/
+URL:https://recomb.org/recomb2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-spaa-2027-0-abstract-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270123T115959Z
+DTEND:20270123T115959Z
+SUMMARY:SPAA 2027 abstract deadline (Cycle 2)
+DESCRIPTION:ACM Symposium on Parallelism in Algorithms and Architectures\nC
+ CF B\nPublished deadline: 2027-01-22 23:59 AoE\nhttps://spaa.acm.org/
+URL:https://spaa.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-spaa-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270130T115959Z
+DTEND:20270130T115959Z
+SUMMARY:SPAA 2027 paper deadline (Cycle 2)
+DESCRIPTION:ACM Symposium on Parallelism in Algorithms and Architectures\nC
+ CF B\nPublished deadline: 2027-01-29 23:59 AoE\nhttps://spaa.acm.org/
+URL:https://spaa.acm.org/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,387 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//castlDDL//deadlines//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:castlDDL - Security and privacy for cloud and network systems
+X-PUBLISHED-TTL:PT12H
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:SC-acisp-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261201T115959Z
+DTEND:20261201T115959Z
+SUMMARY:ACISP 2027 paper deadline (1st round Deadline)
+DESCRIPTION:Australasia Conference on Information Security and Privacy\nCCF
+  C\nPublished deadline: 2026-11-30 23:59 AoE\nhttps://acisp.org/
+URL:https://acisp.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-acisp-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270302T115959Z
+DTEND:20270302T115959Z
+SUMMARY:ACISP 2027 paper deadline (2nd round Deadline)
+DESCRIPTION:Australasia Conference on Information Security and Privacy\nCCF
+  C\nPublished deadline: 2027-03-01 23:59 AoE\nhttps://acisp.org/
+URL:https://acisp.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-acns-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270122T115959Z
+DTEND:20270122T115959Z
+SUMMARY:ACNS 2027 paper deadline (Cycle 2 Submission deadline)
+DESCRIPTION:Applied Cryptography and Network Security\nCCF C\nPublished dea
+ dline: 2027-01-21 23:59 AoE\nhttps://acns2027.isg.rhul.ac.uk/
+URL:https://acns2027.isg.rhul.ac.uk/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-asiaccs-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261212T115959Z
+DTEND:20261212T115959Z
+SUMMARY:AsiaCCS 2027 paper deadline (2nd round Deadline)
+DESCRIPTION:Asia Conference on Computer and Communications Security\nCCF C\
+ nPublished deadline: 2026-12-11 23:59 AoE\nhttps://asiaccs2027.cityu.edu.m
+ o/index.html
+URL:https://asiaccs2027.cityu.edu.mo/index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-blocksys-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261201T115959Z
+DTEND:20261201T115959Z
+SUMMARY:BlockSys 2027 paper deadline (Round 1 Submission Deadline)
+DESCRIPTION:International Conference on Blockchain\, Artificial Intelligenc
+ e\, and Trustworthy Systems\nCCF C\nPublished deadline: 2026-11-30 23:59 A
+ oE\nhttps://blocksys.info/2027/
+URL:https://blocksys.info/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-blocksys-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270201T115959Z
+DTEND:20270201T115959Z
+SUMMARY:BlockSys 2027 paper deadline (Round 2 Submission Deadline)
+DESCRIPTION:International Conference on Blockchain\, Artificial Intelligenc
+ e\, and Trustworthy Systems\nCCF C\nPublished deadline: 2027-01-31 23:59 A
+ oE\nhttps://blocksys.info/2027/
+URL:https://blocksys.info/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-ches-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261016T115959Z
+DTEND:20261016T115959Z
+SUMMARY:CHES 2027 paper deadline (Schedule for TCHES Volume 2027/2)
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedded
+  Systems\nCCF B\nPublished deadline: 2026-10-15 23:59 AoE\nhttps://ches.ia
+ cr.org/2027/
+URL:https://ches.iacr.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-ches-2027-0-paper-2@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270116T115959Z
+DTEND:20270116T115959Z
+SUMMARY:CHES 2027 paper deadline (Schedule for TCHES Volume 2027/3)
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedded
+  Systems\nCCF B\nPublished deadline: 2027-01-15 23:59 AoE\nhttps://ches.ia
+ cr.org/2027/
+URL:https://ches.iacr.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-ches-2027-0-paper-3@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270416T115959Z
+DTEND:20270416T115959Z
+SUMMARY:CHES 2027 paper deadline (Schedule for TCHES Volume 2027/4)
+DESCRIPTION:International Conference on Cryptographic Hardware and Embedded
+  Systems\nCCF B\nPublished deadline: 2027-04-15 23:59 AoE\nhttps://ches.ia
+ cr.org/2027/
+URL:https://ches.iacr.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-codaspy-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261117T115959Z
+DTEND:20261117T115959Z
+SUMMARY:CODASPY 2027 abstract deadline
+DESCRIPTION:ACM Conference on Data and Application Security and Privacy\nCC
+ F C\nPublished deadline: 2026-11-16 23:59 AoE\nhttps://www.codaspy.org/202
+ 7/
+URL:https://www.codaspy.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-codaspy-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261124T115959Z
+DTEND:20261124T115959Z
+SUMMARY:CODASPY 2027 paper deadline
+DESCRIPTION:ACM Conference on Data and Application Security and Privacy\nCC
+ F C\nPublished deadline: 2026-11-23 23:59 AoE\nhttps://www.codaspy.org/202
+ 7/
+URL:https://www.codaspy.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-csfw-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261016T115959Z
+DTEND:20261016T115959Z
+SUMMARY:CSFW 2027 paper deadline (Fall)
+DESCRIPTION:IEEE Computer Security Foundations Symposium\nCCF B\nPublished 
+ deadline: 2026-10-15 23:59 AoE\nhttps://www.ieee-security.org/TC/CSF2027/
+URL:https://www.ieee-security.org/TC/CSF2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-csfw-2027-0-paper-2@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270129T115959Z
+DTEND:20270129T115959Z
+SUMMARY:CSFW 2027 paper deadline (Winter)
+DESCRIPTION:IEEE Computer Security Foundations Symposium\nCCF B\nPublished 
+ deadline: 2027-01-28 23:59 AoE\nhttps://www.ieee-security.org/TC/CSF2027/
+URL:https://www.ieee-security.org/TC/CSF2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-ct-rsa-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261023T115959Z
+DTEND:20261023T115959Z
+SUMMARY:CT-RSA 2027 paper deadline (Paper submission deadline)
+DESCRIPTION:Cryptographer's Track at RSA Conference\nCCF C\nPublished deadl
+ ine: 2026-10-22 23:59 AoE\nhttps://www.esat.kuleuven.be/cosic/events/ct-rs
+ a-2027/
+URL:https://www.esat.kuleuven.be/cosic/events/ct-rsa-2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-dfrws-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261003T115959Z
+DTEND:20261003T115959Z
+SUMMARY:DFRWS 2027 abstract deadline (Extended deadlines)
+DESCRIPTION:Digital Forensic Research Workshop\nCCF C\nPublished deadline: 
+ 2026-10-02 23:59 AoE\nhttps://dfrws.org/conferences/dfceurope2027/
+URL:https://dfrws.org/conferences/dfceurope2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-dfrws-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261010T115959Z
+DTEND:20261010T115959Z
+SUMMARY:DFRWS 2027 paper deadline (Extended deadlines)
+DESCRIPTION:Digital Forensic Research Workshop\nCCF C\nPublished deadline: 
+ 2026-10-09 23:59 AoE\nhttps://dfrws.org/conferences/dfceurope2027/
+URL:https://dfrws.org/conferences/dfceurope2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-dsn-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261126T115959Z
+DTEND:20261126T115959Z
+SUMMARY:DSN 2027 abstract deadline
+DESCRIPTION:International Conference on Dependable Systems and Networks\nCC
+ F B\nPublished deadline: 2026-11-25 23:59 AoE\nhttps://dsn2027-berlin.gith
+ ub.io/
+URL:https://dsn2027-berlin.github.io/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-dsn-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261203T115959Z
+DTEND:20261203T115959Z
+SUMMARY:DSN 2027 paper deadline
+DESCRIPTION:International Conference on Dependable Systems and Networks\nCC
+ F B\nPublished deadline: 2026-12-02 23:59 AoE\nhttps://dsn2027-berlin.gith
+ ub.io/
+URL:https://dsn2027-berlin.github.io/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-eurosp-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261126T115959Z
+DTEND:20261126T115959Z
+SUMMARY:EuroS&P 2027 abstract deadline
+DESCRIPTION:IEEE European Symposium on Security and Privacy\nCCF C\nPublish
+ ed deadline: 2026-11-25 23:59 AoE\nhttps://eurosp2027.ieee-security.org/
+URL:https://eurosp2027.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-eurosp-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261203T115959Z
+DTEND:20261203T115959Z
+SUMMARY:EuroS&P 2027 paper deadline
+DESCRIPTION:IEEE European Symposium on Security and Privacy\nCCF C\nPublish
+ ed deadline: 2026-12-02 23:59 AoE\nhttps://eurosp2027.ieee-security.org/
+URL:https://eurosp2027.ieee-security.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-fse-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261202T115959Z
+DTEND:20261202T115959Z
+SUMMARY:FSE 2027 paper deadline (ToSC\, Volume 2027\, Issue 1 Submission de
+ adline)
+DESCRIPTION:Fast Software Encryption\nCCF B\nPublished deadline: 2026-12-01
+  23:59 AoE\nhttps://fse.iacr.org/2027/
+URL:https://fse.iacr.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-icdf2c-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261216T115959Z
+DTEND:20261216T115959Z
+SUMMARY:ICDF2C 2027 paper deadline (Full Paper Submission deadline)
+DESCRIPTION:International Conference on Digital Forensics & Cyber Crime\nCC
+ F C\nPublished deadline: 2026-12-15 23:59 AoE\nhttps://icdf2c.eai-conferen
+ ces.org/2027/
+URL:https://icdf2c.eai-conferences.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-ifip119-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261011T115959Z
+DTEND:20261011T115959Z
+SUMMARY:IFIP WG 11.9 2027 paper deadline (Submission Deadline)
+DESCRIPTION:IFIP WG 11.9 International Conference on Digital Forensics\nCCF
+  C\nPublished deadline: 2026-10-10 23:59 AoE\nhttps://www.ifip119.org/Conf
+ erences/
+URL:https://www.ifip119.org/Conferences/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-noms-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261110T115959Z
+DTEND:20261110T115959Z
+SUMMARY:NOMS 2027 paper deadline
+DESCRIPTION:IEEE/IFIP Network Operations and Management Symposium\nCCF N\nP
+ ublished deadline: 2026-11-09 23:59 AoE\nhttps://noms2027.ieee-noms.org/
+URL:https://noms2027.ieee-noms.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-pets-2027-0-paper-2@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261201T115959Z
+DTEND:20261201T115959Z
+SUMMARY:PETS 2027 paper deadline (Issue 3 Paper Submission Deadline)
+DESCRIPTION:Privacy Enhancing Technologies Symposium\nCCF C\nPublished dead
+ line: 2026-11-30 23:59 AoE\nhttps://petsymposium.org/cfp27.php
+URL:https://petsymposium.org/cfp27.php
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-pets-2027-0-paper-3@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270301T115959Z
+DTEND:20270301T115959Z
+SUMMARY:PETS 2027 paper deadline (Issue 4 Paper Submission Deadline)
+DESCRIPTION:Privacy Enhancing Technologies Symposium\nCCF C\nPublished dead
+ line: 2027-02-28 23:59 AoE\nhttps://petsymposium.org/cfp27.php
+URL:https://petsymposium.org/cfp27.php
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-sp-2027-0-abstract-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261111T115959Z
+DTEND:20261111T115959Z
+SUMMARY:S&P 2027 abstract deadline (Second Paper submission deadline)
+DESCRIPTION:IEEE Symposium on Security and Privacy\nCCF A\nPublished deadli
+ ne: 2026-11-10 23:59 AoE\nhttps://sp2027.ieee-security.org/index.html
+URL:https://sp2027.ieee-security.org/index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-sp-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261118T115959Z
+DTEND:20261118T115959Z
+SUMMARY:S&P 2027 paper deadline (Second Paper submission deadline)
+DESCRIPTION:IEEE Symposium on Security and Privacy\nCCF A\nPublished deadli
+ ne: 2026-11-17 23:59 AoE\nhttps://sp2027.ieee-security.org/index.html
+URL:https://sp2027.ieee-security.org/index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-sacmat-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261031T115959Z
+DTEND:20261031T115959Z
+SUMMARY:SACMAT 2027 paper deadline (First Cycle)
+DESCRIPTION:ACM Symposium on Access Control Models and Technologies\nCCF C\
+ nPublished deadline: 2026-10-30 23:59 AoE\nhttps://www.sacmat.org/2027/
+URL:https://www.sacmat.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-sacmat-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270213T115959Z
+DTEND:20270213T115959Z
+SUMMARY:SACMAT 2027 paper deadline (Second Cycle)
+DESCRIPTION:ACM Symposium on Access Control Models and Technologies\nCCF C\
+ nPublished deadline: 2027-02-12 23:59 AoE\nhttps://www.sacmat.org/2027/
+URL:https://www.sacmat.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-sais-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270205T115959Z
+DTEND:20270205T115959Z
+SUMMARY:SAIS 2027 paper deadline (Paper submission deadline)
+DESCRIPTION:USENIX Conference on Secure Agentic-AI Systems\nCCF N\nPublishe
+ d deadline: 2027-02-04 23:59 AoE\nhttps://www.usenix.org/conference/sais27
+URL:https://www.usenix.org/conference/sais27
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-satml-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20260930T115959Z
+DTEND:20260930T115959Z
+SUMMARY:SATML 2027 paper deadline
+DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\nCCF
+  N\nPublished deadline: 2026-09-29 23:59 AoE\nhttps://satml.org/
+URL:https://satml.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-securecomm-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270202T115959Z
+DTEND:20270202T115959Z
+SUMMARY:SecureComm 2027 paper deadline (Full Paper Submission deadline (Cyc
+ le 1))
+DESCRIPTION:International Conference on Security and Privacy in Communicati
+ on Networks\nCCF C\nPublished deadline: 2027-02-01 23:59 AoE\nhttps://secu
+ recomm.eai-conferences.org/2027/
+URL:https://securecomm.eai-conferences.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-securecomm-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270416T115959Z
+DTEND:20270416T115959Z
+SUMMARY:SecureComm 2027 paper deadline (Full Paper Submission deadline (Cyc
+ le 2))
+DESCRIPTION:International Conference on Security and Privacy in Communicati
+ on Networks\nCCF C\nPublished deadline: 2027-04-15 23:59 AoE\nhttps://secu
+ recomm.eai-conferences.org/2027/
+URL:https://securecomm.eai-conferences.org/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-uss-2027-0-abstract-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270120T115959Z
+DTEND:20270120T115959Z
+SUMMARY:USENIX Security 2027 abstract deadline (Cycle 2 Deadline)
+DESCRIPTION:USENIX Security Symposium\nCCF A\nPublished deadline: 2027-01-1
+ 9 23:59 AoE\nhttps://www.usenix.org/conference/usenixsecurity27
+URL:https://www.usenix.org/conference/usenixsecurity27
+END:VEVENT
+BEGIN:VEVENT
+UID:SC-uss-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270127T115959Z
+DTEND:20270127T115959Z
+SUMMARY:USENIX Security 2027 paper deadline (Cycle 2 Deadline)
+DESCRIPTION:USENIX Security Symposium\nCCF A\nPublished deadline: 2027-01-2
+ 6 23:59 AoE\nhttps://www.usenix.org/conference/usenixsecurity27
+URL:https://www.usenix.org/conference/usenixsecurity27
+END:VEVENT
+END:VCALENDAR

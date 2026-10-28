@@ -1,0 +1,180 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//castlDDL//deadlines//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:castlDDL - Cloud computing\, parallel and distributed systems
+X-PUBLISHED-TTL:PT12H
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:DS-ccgrid-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261125T115959Z
+DTEND:20261125T115959Z
+SUMMARY:CCGRID 2027 abstract deadline
+DESCRIPTION:IEEE International Symposium on Cluster\, Cloud and Internet Co
+ mputing\nCCF C\nPublished deadline: 2026-11-24 23:59 AoE\nhttps://hpcclab.
+ org/ccgrid27/
+URL:https://hpcclab.org/ccgrid27/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-ccgrid-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261202T115959Z
+DTEND:20261202T115959Z
+SUMMARY:CCGRID 2027 paper deadline
+DESCRIPTION:IEEE International Symposium on Cluster\, Cloud and Internet Co
+ mputing\nCCF C\nPublished deadline: 2026-12-01 23:59 AoE\nhttps://hpcclab.
+ org/ccgrid27/
+URL:https://hpcclab.org/ccgrid27/
+END:VEVENT
+BEGIN:VEVENT
+UID:SE-hotos-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270202T115959Z
+DTEND:20270202T115959Z
+SUMMARY:HotOS 2027 paper deadline
+DESCRIPTION:USENIX Workshop on Hot Topics in Operating Systems\nCCF B\nPubl
+ ished deadline: 2027-02-01 23:59 AoE\nhttps://sigops.org/s/conferences/hot
+ os/2027/
+URL:https://sigops.org/s/conferences/hotos/2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-ipdps-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261002T115959Z
+DTEND:20261002T115959Z
+SUMMARY:IPDPS 2027 abstract deadline
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposiu
+ m\nCCF B\nPublished deadline: 2026-10-01 23:59 AoE\nhttps://www.ipdps.org/
+URL:https://www.ipdps.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-ipdps-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261009T115959Z
+DTEND:20261009T115959Z
+SUMMARY:IPDPS 2027 paper deadline
+DESCRIPTION:IEEE International Parallel and Distributed Processing Symposiu
+ m\nCCF B\nPublished deadline: 2026-10-08 23:59 AoE\nhttps://www.ipdps.org/
+URL:https://www.ipdps.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-ispa-2026-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261001T115959Z
+DTEND:20261001T115959Z
+SUMMARY:ISPA 2026 paper deadline
+DESCRIPTION:IEEE International Symposium on Parallel and Distributed Proces
+ sing with Applications\nCCF C\nPublished deadline: 2026-09-30 23:59 AoE\nh
+ ttps://ieee-ai-for-science.org/2026/ispa/
+URL:https://ieee-ai-for-science.org/2026/ispa/
+END:VEVENT
+BEGIN:VEVENT
+UID:MX-mlsys-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261030T200000Z
+DTEND:20261030T200000Z
+SUMMARY:MLSys 2027 paper deadline
+DESCRIPTION:Conference on Machine Learning and Systems\nCCF N\nPublished de
+ adline: 2026-10-30 20:00 UTC\nhttps://mlsys.org/
+URL:https://mlsys.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:SE-osdi-2027-0-abstract-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261201T225959Z
+DTEND:20261201T225959Z
+SUMMARY:OSDI 2027 abstract deadline
+DESCRIPTION:USENIX Symposium on Operating Systems Design and Implementation
+ \nCCF A\nPublished deadline: 2026-12-01 22:59 UTC\nhttps://www.usenix.org/
+ conference/osdi27
+URL:https://www.usenix.org/conference/osdi27
+END:VEVENT
+BEGIN:VEVENT
+UID:SE-osdi-2027-0-paper-0@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261208T225959Z
+DTEND:20261208T225959Z
+SUMMARY:OSDI 2027 paper deadline
+DESCRIPTION:USENIX Symposium on Operating Systems Design and Implementation
+ \nCCF A\nPublished deadline: 2026-12-08 22:59 UTC\nhttps://www.usenix.org/
+ conference/osdi27
+URL:https://www.usenix.org/conference/osdi27
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-pdcat-2026-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261021T115959Z
+DTEND:20261021T115959Z
+SUMMARY:PDCAT 2026 paper deadline (Second Cycle)
+DESCRIPTION:International Conference on Parallel and Distributed Computing\
+ , Applications and Technologies\nCCF N\nPublished deadline: 2026-10-20 23:
+ 59 AoE\nhttps://www.pd-cat.org/2026/
+URL:https://www.pd-cat.org/2026/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-sigmetrics-2027-0-abstract-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261003T115959Z
+DTEND:20261003T115959Z
+SUMMARY:SIGMETRICS 2027 abstract deadline (fall round)
+DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
+ \nPublished deadline: 2026-10-02 23:59 AoE\nhttps://www.sigmetrics.org/sig
+ metrics2027/
+URL:https://www.sigmetrics.org/sigmetrics2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-sigmetrics-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20261010T115959Z
+DTEND:20261010T115959Z
+SUMMARY:SIGMETRICS 2027 paper deadline (fall round)
+DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
+ \nPublished deadline: 2026-10-09 23:59 AoE\nhttps://www.sigmetrics.org/sig
+ metrics2027/
+URL:https://www.sigmetrics.org/sigmetrics2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-sigmetrics-2027-0-abstract-2@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270105T115959Z
+DTEND:20270105T115959Z
+SUMMARY:SIGMETRICS 2027 abstract deadline (winter round)
+DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
+ \nPublished deadline: 2027-01-04 23:59 AoE\nhttps://www.sigmetrics.org/sig
+ metrics2027/
+URL:https://www.sigmetrics.org/sigmetrics2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-sigmetrics-2027-0-paper-2@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270112T115959Z
+DTEND:20270112T115959Z
+SUMMARY:SIGMETRICS 2027 paper deadline (winter round)
+DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
+ \nPublished deadline: 2027-01-11 23:59 AoE\nhttps://www.sigmetrics.org/sig
+ metrics2027/
+URL:https://www.sigmetrics.org/sigmetrics2027/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-spaa-2027-0-abstract-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270123T115959Z
+DTEND:20270123T115959Z
+SUMMARY:SPAA 2027 abstract deadline (Cycle 2)
+DESCRIPTION:ACM Symposium on Parallelism in Algorithms and Architectures\nC
+ CF B\nPublished deadline: 2027-01-22 23:59 AoE\nhttps://spaa.acm.org/
+URL:https://spaa.acm.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:DS-spaa-2027-0-paper-1@castlddl
+DTSTAMP:20261028T155232Z
+DTSTART:20270130T115959Z
+DTEND:20270130T115959Z
+SUMMARY:SPAA 2027 paper deadline (Cycle 2)
+DESCRIPTION:ACM Symposium on Parallelism in Algorithms and Architectures\nC
+ CF B\nPublished deadline: 2027-01-29 23:59 AoE\nhttps://spaa.acm.org/
+URL:https://spaa.acm.org/
+END:VEVENT
+END:VCALENDAR

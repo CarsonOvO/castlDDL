@@ -1,0 +1,24 @@
+# Venues that ccfddl does not list (for example geoscience venues).
+# Same fields as a ccfddl file, plus `id` and `dirs`.
+# Time zones: AoE, UTC, UTC-8, UTC+8, PT, ET, CET.
+# Deadlines: 'YYYY-MM-DD HH:MM:SS'. Conference dates: 'May 17-21, 2027'.
+#
+# Example (remove the leading '# ' to use it; the values are placeholders):
+#
+# - id: EXTRA/example
+#   title: EXAMPLE
+#   description: Example Conference on Something
+#   rank: {ccf: N}
+#   dirs: [hpc]
+#   confs:
+#     - year: 2027
+#       link: https://example.org/2027/
+#       timeline:
+#         - abstract_deadline: '2027-01-08 23:59:59'
+#           deadline: '2027-01-15 23:59:59'
+#           decision_deadline: '2027-03-20 23:59:59'
+#       timezone: AoE
+#       date: June 1-4, 2027
+#       place: Somewhere
+
+[]
