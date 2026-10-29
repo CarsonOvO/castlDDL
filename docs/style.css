@@ -8,16 +8,25 @@
   --font-display: "Bricolage Grotesque", "Noto Sans SC", system-ui, sans-serif;
   --font-body: "Noto Sans SC", system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-data: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --r: 10px;
+  --r: 10px; --star: #9A6B00;
   color-scheme: light;
 }
+/* Dark theme: follows the system unless the theme button set data-theme on <html>. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0F131B; --surface: #171C27; --sunk: #131823; --ink: #E6EAF2; --muted: #98A1B4; --line: #2A3141;
     --accent: #8099FF; --accent-ink: #0D1120; --danger: #F07468; --chip-ink: #0D1018;
     --d0: #6F9BF5; --d1: #F08C55; --d2: #5DBB78; --d3: #C27BE0; --d4: #3FC0D2; --dx: #9AA6BD;
+    --star: #F2C14E;
     color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --bg: #0F131B; --surface: #171C27; --sunk: #131823; --ink: #E6EAF2; --muted: #98A1B4; --line: #2A3141;
+  --accent: #8099FF; --accent-ink: #0D1120; --danger: #F07468; --chip-ink: #0D1018;
+  --d0: #6F9BF5; --d1: #F08C55; --d2: #5DBB78; --d3: #C27BE0; --d4: #3FC0D2; --dx: #9AA6BD;
+  --star: #F2C14E;
+  color-scheme: dark;
 }
 * { box-sizing: border-box }
 html { -webkit-text-size-adjust: 100% }
@@ -40,6 +49,7 @@ a { color: var(--accent) }
 .top .sub { margin: 6px 0 0; color: var(--muted); max-width: 70ch }
 .btn { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px 13px; font-weight: 500 }
 .btn:hover { border-color: var(--muted) }
+.topbtns { display: flex; gap: 8px }
 .iconbtn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); font-size: 18px; line-height: 1; display: grid; place-items: center; flex: none }
 .iconbtn:hover { border-color: var(--muted) }
 
@@ -95,6 +105,12 @@ a { color: var(--accent) }
 .chip.k-conf.re { border-radius: 0 5px 5px 0; margin-right: 0; width: calc(100% + 6px) }
 .chip.k-conf.rs.re { border-radius: 5px; width: 100% }
 .chip.past { opacity: .5 }
+/* Estimated dates (projected from last year, not announced): hatched and italic. */
+.chip.est { font-style: italic }
+.chip.k-paper.est { background: repeating-linear-gradient(135deg, var(--c) 0 6px, color-mix(in srgb, var(--c) 78%, var(--surface)) 6px 9px) }
+.chip.k-abstract.est { background: repeating-linear-gradient(135deg, var(--surface) 0 6px, color-mix(in srgb, var(--c) 18%, var(--surface)) 6px 9px) }
+.dot.est, .bar.est, .kindtag.est { opacity: .5 }
+.pill.est { font-style: italic }
 .more { border: 0; background: none; padding: 0 6px; text-align: left; font-size: 12px; color: var(--muted) }
 .more:hover { color: var(--ink) }
 .dots { display: none; flex-wrap: wrap; gap: 3px; padding: 0 2px }
@@ -196,6 +212,5 @@ a { color: var(--accent) }
 .kindtag.k-abstract, .kindtag.k-notify, .kindtag.k-rebuttal { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); outline: none }
 .kindtag.k-conf { background: color-mix(in srgb, var(--c) 40%, var(--surface)); width: 10px; margin: 0 6px 0 0; padding: 0 }
 .note { color: var(--muted); font-size: 12px; display: block }
-.starbtn[aria-pressed="true"] { border-color: #D99A00; color: #9A6B00 }
-@media (prefers-color-scheme: dark) { .starbtn[aria-pressed="true"] { color: #F2C14E } }
+.starbtn[aria-pressed="true"] { border-color: #D99A00; color: var(--star) }
 @media (prefers-reduced-motion: no-preference) { .panel { animation: slide .18s ease-out } @keyframes slide { from { transform: translateX(24px); opacity: .6 } to { transform: none; opacity: 1 } } }

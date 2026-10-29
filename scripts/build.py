@@ -37,6 +37,7 @@ MONTHS = ["january", "february", "march", "april", "may", "june", "july",
 TIMELINE_KEYS = (("abstract_deadline", "abstract"), ("deadline", "paper"),
                  ("rebuttal_deadline", "rebuttal"), ("decision_deadline", "notify"))
 ICS_KINDS = {"abstract": "abstract deadline", "paper": "paper deadline"}
+ESTIMATE_WINDOW = 45  # days; rounds of quarterly venues (SIGMOD) are ~90 days apart
 
 
 def fetch(url, timeout=60):
@@ -189,6 +190,50 @@ def build_edition(conf):
     }
 
 
+def shift_year(date_str, years):
+    y, m, d = map(int, date_str.split("-"))
+    return f"{y + years:04d}-{m:02d}-{min(d, 28) if (m, d) == (2, 29) else d:02d}"
+
+
+def add_estimates(editions, now):
+    """Project each edition's abstract and paper deadlines one year ahead, for rounds the
+    next call has not announced yet. ccfddl lists only announced dates, so the next round
+    of most venues is missing for months (KDD 2027 lists its July round, not February).
+    An estimate is kept only if it falls within the next 365 days and no announced deadline
+    of the same kind lies within ESTIMATE_WINDOW days of it. Estimates carry `est` = the base year."""
+    announced = [(ev["kind"], dt.date.fromisoformat(ev["date"]))
+                 for ed in editions for ev in ed["events"] if ev["kind"] in ICS_KINDS and not ev.get("est")]
+    by_year = {ed["year"]: ed for ed in editions}
+    for base in sorted(editions, key=lambda e: e["year"]):
+        if base.get("est"):
+            continue
+        tz = tz_for(base["tz"])
+        for ev in base["events"]:
+            if ev["kind"] not in ICS_KINDS or ev.get("est"):
+                continue
+            date = shift_year(ev["date"], 1)
+            day = dt.date.fromisoformat(date)
+            if any(k == ev["kind"] and abs((day - a).days) <= ESTIMATE_WINDOW for k, a in announced):
+                continue
+            new = parse_deadline(f"{date} {ev['time']}" if ev.get("time") else date, tz)
+            when = new.get("utc") or f"{date}T23:59:59Z"
+            when = dt.datetime.strptime(when, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
+            if not now <= when <= now + dt.timedelta(days=365):
+                continue
+            new.update(kind=ev["kind"], round=ev["round"], est=base["year"])
+            if ev.get("note"):
+                new["note"] = ev["note"]
+            target = by_year.get(base["year"] + 1)
+            if target is None:
+                target = by_year[base["year"] + 1] = {"year": base["year"] + 1, "est": True, "tz": base["tz"], "events": []}
+                editions.append(target)
+            if not any(x.get("est") and x["kind"] == new["kind"] and x["date"] == new["date"] for x in target["events"]):
+                target["events"].append(new)
+    for ed in editions:
+        ed["events"].sort(key=lambda x: (x["date"], x.get("time", "")))
+    return editions
+
+
 def clean(obj):
     if isinstance(obj, dict):
         return {k: clean(v) for k, v in obj.items() if v not in (None, "", [], {})}
@@ -242,11 +287,11 @@ def write_ics(path, name, confs, now):
     lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//castlDDL//deadlines//EN",
              "CALSCALE:GREGORIAN", "METHOD:PUBLISH", f"X-WR-CALNAME:{ics_escape(name)}",
              "X-PUBLISHED-TTL:PT12H", "REFRESH-INTERVAL;VALUE=DURATION:PT12H"]
-    count = 0
+    count, uids = 0, set()
     for c in confs:
-        for ei, ed in enumerate(c["editions"]):
+        for ed in c["editions"]:
             for ev in ed["events"]:
-                if ev["kind"] not in ICS_KINDS or "utc" not in ev:
+                if ev["kind"] not in ICS_KINDS or "utc" not in ev or ev.get("est"):
                     continue
                 when = dt.datetime.strptime(ev["utc"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
                 if when < since:
@@ -259,7 +304,11 @@ def write_ics(path, name, confs, now):
                         f"Published deadline: {published}"]
                 if ed.get("link"):
                     desc.append(ed["link"])
-                uid = f"{c['id'].replace('/', '-')}-{ed.get('year')}-{ei}-{ev['kind']}-{ev.get('round', 0)}@castlddl"
+                uid = f"{c['id'].replace('/', '-')}-{ed.get('year')}-{ev['kind']}-{ev.get('round', 0)}"
+                while uid in uids:  # ccfddl lists the same round twice
+                    uid += "-x"
+                uids.add(uid)
+                uid += "@castlddl"
                 lines += ["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{stamp}", f"DTSTART:{ts}", f"DTEND:{ts}",
                           f"SUMMARY:{ics_escape(summary)}", f"DESCRIPTION:{ics_escape(chr(10).join(desc))}"]
                 if ed.get("link"):
@@ -292,6 +341,7 @@ def main():
         editions = [e for e in editions if e["events"] or e["date"]]
         if not editions:
             continue
+        add_estimates(editions, now)
         editions.sort(key=lambda e: e["year"], reverse=True)
         rank = entry.get("rank") or {}
         confs.append({
@@ -330,7 +380,8 @@ def main():
     (out_dir / "deadlines.json").write_text(
         json.dumps(clean(data), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     n_events = sum(len(e["events"]) for c in confs for e in c["editions"])
-    print(f"{len(confs)} venues, {n_events} dates, feeds: "
+    n_est = sum(1 for c in confs for e in c["editions"] for ev in e["events"] if ev.get("est"))
+    print(f"{len(confs)} venues, {n_events} dates ({n_est} estimated), feeds: "
           + ", ".join(f"{f['id']}={f['events']}" for f in feeds))
 
 

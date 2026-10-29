@@ -8,8 +8,8 @@ X-WR-CALNAME:castlDDL - Database systems\, big data analytics and social ne
 X-PUBLISHED-TTL:PT12H
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
-UID:DB-chiir-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-chiir-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261009T115959Z
 DTEND:20261009T115959Z
 SUMMARY:CHIIR 2027 abstract deadline
@@ -19,8 +19,8 @@ DESCRIPTION:ACM SIGIR Conference on Human Information Interaction and Retri
 URL:https://chiir2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-chiir-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-chiir-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261016T115959Z
 DTEND:20261016T115959Z
 SUMMARY:CHIIR 2027 paper deadline
@@ -30,8 +30,8 @@ DESCRIPTION:ACM SIGIR Conference on Human Information Interaction and Retri
 URL:https://chiir2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-dasfaa-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-dasfaa-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261126T115900Z
 DTEND:20261126T115900Z
 SUMMARY:DASFAA 2027 paper deadline (Research papers)
@@ -40,8 +40,8 @@ DESCRIPTION:Database Systems for Advanced Applications\nCCF B\nPublished de
 URL:https://dasfaa2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-ecir-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-ecir-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261006T115959Z
 DTEND:20261006T115959Z
 SUMMARY:ECIR 2027 paper deadline
@@ -50,8 +50,8 @@ DESCRIPTION:European Conference on Information Retrieval\nCCF C\nPublished
 URL:https://ecir2027.co.uk/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-edbt-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-edbt-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261008T000000Z
 DTEND:20261008T000000Z
 SUMMARY:EDBT 2027 paper deadline
@@ -61,8 +61,8 @@ DESCRIPTION:International Conference on Extending Database Technology\nCCF
 URL:https://edbticdt2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-eswc-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-eswc-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261211T115959Z
 DTEND:20261211T115959Z
 SUMMARY:ESWC 2027 abstract deadline (Research track\; rebuttal period Janua
@@ -72,8 +72,8 @@ DESCRIPTION:European Semantic Web Conference\nCCF C\nPublished deadline: 20
 URL:https://2027.eswc-conferences.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-eswc-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-eswc-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261218T115959Z
 DTEND:20261218T115959Z
 SUMMARY:ESWC 2027 paper deadline (Research track\; rebuttal period January 
@@ -83,8 +83,8 @@ DESCRIPTION:European Semantic Web Conference\nCCF C\nPublished deadline: 20
 URL:https://2027.eswc-conferences.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-icde-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-icde-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261112T010000Z
 DTEND:20261112T010000Z
 SUMMARY:ICDE 2027 paper deadline (second round\; notification date is appro
@@ -94,8 +94,8 @@ DESCRIPTION:IEEE International Conference on Data Engineering\nCCF A\nPubli
 URL:https://icde2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-icdm-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-icdm-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270607T115900Z
 DTEND:20270607T115900Z
 SUMMARY:ICDM 2027 paper deadline (Full papers\; dates are tentative and sub
@@ -105,8 +105,8 @@ DESCRIPTION:IEEE International Conference on Data Mining\nCCF B\nPublished
 URL:https://icdm2027-website.onrender.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:HI-icwsm-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:HI-icwsm-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270116T115959Z
 DTEND:20270116T115959Z
 SUMMARY:ICWSM 2027 paper deadline (3rd Full-paper Deadline)
@@ -115,8 +115,8 @@ DESCRIPTION:The International AAAI Conference on Web and Social Media\nCCF
 URL:https://www.icwsm.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-pakdd-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-pakdd-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261121T115959Z
 DTEND:20261121T115959Z
 SUMMARY:PAKDD 2027 paper deadline
@@ -126,8 +126,8 @@ DESCRIPTION:Pacific-Asia Conference on Knowledge Discovery and Data Mining\
 URL:https://www.pakdd2027.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-pods-2027-0-abstract-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-pods-2027-abstract-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261204T115959Z
 DTEND:20261204T115959Z
 SUMMARY:PODS 2027 abstract deadline (Second Submission Cycle)
@@ -136,8 +136,8 @@ DESCRIPTION:ACM Symposium on Principles of Database Systems\nCCF B\nPublish
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-pods-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-pods-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261211T115959Z
 DTEND:20261211T115959Z
 SUMMARY:PODS 2027 paper deadline (Second Submission Cycle)
@@ -146,8 +146,8 @@ DESCRIPTION:ACM Symposium on Principles of Database Systems\nCCF B\nPublish
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigir-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigir-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270115T115959Z
 DTEND:20270115T115959Z
 SUMMARY:SIGIR 2027 abstract deadline
@@ -157,8 +157,8 @@ DESCRIPTION:International Conference on Research on Development in Informat
 URL:https://sigir2027.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigir-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigir-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270122T115959Z
 DTEND:20270122T115959Z
 SUMMARY:SIGIR 2027 paper deadline
@@ -168,8 +168,8 @@ DESCRIPTION:International Conference on Research on Development in Informat
 URL:https://sigir2027.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigmod-2027-0-abstract-3@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigmod-2027-abstract-3@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261011T115959Z
 DTEND:20261011T115959Z
 SUMMARY:SIGMOD 2027 abstract deadline (round 4)
@@ -178,8 +178,8 @@ DESCRIPTION:ACM Conference on Management of Data\nCCF A\nPublished deadline
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigmod-2027-0-paper-3@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigmod-2027-paper-3@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261018T115959Z
 DTEND:20261018T115959Z
 SUMMARY:SIGMOD 2027 paper deadline (round 4)
@@ -188,8 +188,8 @@ DESCRIPTION:ACM Conference on Management of Data\nCCF A\nPublished deadline
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-6@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-6@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261002T000000Z
 DTEND:20261002T000000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -198,8 +198,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-7@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-7@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261026T000000Z
 DTEND:20261026T000000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -208,8 +208,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-7@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-7@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261102T010000Z
 DTEND:20261102T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -218,8 +218,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-8@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-8@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261126T010000Z
 DTEND:20261126T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -228,8 +228,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-8@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-8@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261202T010000Z
 DTEND:20261202T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -238,8 +238,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-9@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-9@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261226T010000Z
 DTEND:20261226T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -248,8 +248,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-9@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-9@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270102T010000Z
 DTEND:20270102T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -258,8 +258,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-10@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-10@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270126T010000Z
 DTEND:20270126T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -268,8 +268,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-10@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-10@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270202T010000Z
 DTEND:20270202T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -278,8 +278,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-11@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-11@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270226T010000Z
 DTEND:20270226T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -288,8 +288,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-11@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-11@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270302T010000Z
 DTEND:20270302T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -298,8 +298,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-wsdm-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-wsdm-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261118T115959Z
 DTEND:20261118T115959Z
 SUMMARY:WSDM 2027 paper deadline (Short Paper)
@@ -309,8 +309,8 @@ DESCRIPTION:International Conference on Web Search and Data Mining\nCCF B\n
 URL:https://wsdm-conference.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-www-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-www-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261019T115959Z
 DTEND:20261019T115959Z
 SUMMARY:WWW 2027 abstract deadline
@@ -319,8 +319,8 @@ DESCRIPTION:International World Wide Web Conferences\nCCF A\nPublished dead
 URL:https://www2027.thewebconf.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-www-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-www-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261026T115959Z
 DTEND:20261026T115959Z
 SUMMARY:WWW 2027 paper deadline

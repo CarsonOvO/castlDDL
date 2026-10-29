@@ -27,7 +27,10 @@
       subtitle: "实验室会议截稿日历。数据来自 ccfddl，按组内五个研究方向整理。截稿时间自动换算成你的本地时间。",
       directions: "研究方向", rank: "CCF 等级", show: "显示", find: "查找",
       starredOnly: "只看关注", search: "搜索会议，例如 SIGMOD", rankOther: "无等级",
-      kDeadline: "摘要与论文截止", kRebuttal: "Rebuttal", kNotify: "录用通知", kConf: "会期",
+      kDeadline: "摘要与论文截止", kRebuttal: "Rebuttal", kNotify: "录用通知", kConf: "会期", kEst: "预计日期",
+      est: "预计", estNote: (y) => `按 ${y} 年的日期推算，官方还没公布`,
+      estEdition: (y) => `官方还没公布这一届的日期。下面的日期是按 ${y} 年推算的，仅供参考。`,
+      themeDark: "深色", themeLight: "浅色", themeTo: (m) => `切换到${m}模式`,
       paper: "论文截止", abstract: "摘要截止", rebuttal: "Rebuttal", notify: "录用通知", conf: "会期",
       paperS: "截稿", abstractS: "摘要", rebuttalS: "Rebuttal", notifyS: "通知", confS: "会期",
       month: "月历", list: "列表", thisMonth: "本月", prev: "上个月", next: "下个月",
@@ -37,7 +40,7 @@
       days: "天", hours: "小时", today: "今天截止", yourTime: "你的时间", noTime: "未注明时刻",
       more: (n) => `另有 ${n} 项`, nothingThisDay: "这一天没有日期。", noMatch: "没有符合筛选条件的日期。",
       subscribe: "订阅到日历",
-      subscribeHint: "把地址加到 Google 日历（其他日历 → 通过网址添加）、Outlook 或 Apple 日历。日历 app 会自己定时更新。订阅只包含摘要和论文截止。",
+      subscribeHint: "把地址加到 Google 日历（其他日历 → 通过网址添加）、Outlook 或 Apple 日历。日历 app 会自己定时更新。订阅只包含已公布的摘要和论文截止，不含预计日期。",
       allDirs: "全部方向", copy: "复制地址", copied: "已复制", open: "打开",
       website: "官网", place: "地点", dates: "会期", tz: "时区", dblp: "DBLP",
       type: "类型", published: "公布时间", countdown: "倒计时", passed: "已过", ended: "已结束",
@@ -54,7 +57,10 @@
       subtitle: "Conference deadlines for the lab's five research directions. Data from ccfddl. Deadlines are shown in your local time.",
       directions: "Directions", rank: "CCF rank", show: "Show", find: "Find",
       starredOnly: "Starred only", search: "Search, e.g. SIGMOD", rankOther: "Unranked",
-      kDeadline: "Abstract & paper deadlines", kRebuttal: "Rebuttal", kNotify: "Notification", kConf: "Conference",
+      kDeadline: "Abstract & paper deadlines", kRebuttal: "Rebuttal", kNotify: "Notification", kConf: "Conference", kEst: "Estimated dates",
+      est: "estimated", estNote: (y) => `Estimated from the ${y} date; not announced yet`,
+      estEdition: (y) => `Dates not announced yet. The dates below are estimated from ${y}.`,
+      themeDark: "Dark", themeLight: "Light", themeTo: (m) => `Switch to ${m.toLowerCase()} mode`,
       paper: "Paper deadline", abstract: "Abstract deadline", rebuttal: "Rebuttal", notify: "Notification", conf: "Conference",
       paperS: "paper", abstractS: "abstract", rebuttalS: "rebuttal", notifyS: "notif.", confS: "conf.",
       month: "Month", list: "List", thisMonth: "This month", prev: "Previous month", next: "Next month",
@@ -64,7 +70,7 @@
       days: "d", hours: "h", today: "due today", yourTime: "Your time", noTime: "no time given",
       more: (n) => `+${n} more`, nothingThisDay: "Nothing on this day.", noMatch: "No dates match the filters.",
       subscribe: "Subscribe in your calendar",
-      subscribeHint: "Add a URL to Google Calendar (Other calendars → From URL), Outlook or Apple Calendar. The calendar app refreshes it on its own. Feeds contain abstract and paper deadlines only.",
+      subscribeHint: "Add a URL to Google Calendar (Other calendars → From URL), Outlook or Apple Calendar. The calendar app refreshes it on its own. Feeds contain announced abstract and paper deadlines only, no estimated dates.",
       allDirs: "All directions", copy: "Copy URL", copied: "Copied", open: "Open",
       website: "Website", place: "Place", dates: "Dates", tz: "Time zone", dblp: "DBLP",
       type: "Type", published: "Published", countdown: "Countdown", passed: "passed", ended: "ended",
@@ -127,6 +133,7 @@
     dirs: null,
     ranks: new Set(store.get("ranks", RANKS)),
     kinds: new Set(store.get("kinds", ["deadline", "notify"])),
+    showEst: store.get("showEst", true),
     starOnly: store.get("starOnly", false),
     stars: new Set(store.get("stars", [])),
     query: "",
@@ -182,11 +189,11 @@
     }
     return true;
   }
-  const visibleItems = () => ITEMS.filter((it) => state.kinds.has(KIND_GROUP[it.kind]) && confVisible(it.c));
+  const visibleItems = () => ITEMS.filter((it) => state.kinds.has(KIND_GROUP[it.kind]) && (state.showEst || !it.ev.est) && confVisible(it.c));
 
   function whenText(it) {
     const ev = it.ev;
-    let s = fmtDay(ev.date);
+    let s = (ev.est ? "~" : "") + fmtDay(ev.date);
     if (it.kind === "conf" && it.end > ev.date) s += ` – ${fmtDay(it.end)}`;
     if (it.kind !== "conf") {
       if (ev.time) s += ` ${ev.time}`;
@@ -194,13 +201,24 @@
     }
     return s;
   }
+  const noteText = (it) => [it.ev.est ? t("estNote", it.ev.est) : "", it.ev.note || ""].filter(Boolean).join(" · ");
   const label = (it, short) => `${it.c.title}${short ? "" : " " + (it.ed.year || "")} ${t(it.kind + (short ? "S" : ""))}`.replace(/\s+/g, " ").trim();
+
+  /* ---------- theme ---------- */
+  const sysDark = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  const themeNow = () => document.documentElement.dataset.theme || (sysDark && sysDark.matches ? "dark" : "light");
+  function applyTheme() {
+    const to = themeNow() === "dark" ? t("themeLight") : t("themeDark");
+    $("themeBtn").textContent = `${themeNow() === "dark" ? "☀" : "☾"} ${to}`;
+    $("themeBtn").setAttribute("aria-label", t("themeTo", to));
+  }
 
   /* ---------- render ---------- */
   function applyText() {
     document.documentElement.lang = t("htmlLang");
     document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
     $("langBtn").textContent = t("langBtn");
+    applyTheme();
     $("search").placeholder = t("search");
     $("search").setAttribute("aria-label", t("search"));
     $("prevBtn").setAttribute("aria-label", t("prev"));
@@ -212,7 +230,8 @@
       h("span", null, h("i", { style: "box-shadow:inset 0 0 0 1.5px var(--muted)" }), t("abstract")),
       h("span", null, h("i", { style: "outline:1.5px dotted var(--muted);outline-offset:-1.5px" }), t("rebuttal")),
       h("span", null, h("i", { style: "outline:1.5px dashed var(--muted);outline-offset:-1.5px" }), t("notify")),
-      h("span", null, h("i", { style: "background:color-mix(in srgb,var(--muted) 30%,var(--surface))" }), t("conf")));
+      h("span", null, h("i", { style: "background:color-mix(in srgb,var(--muted) 30%,var(--surface))" }), t("conf")),
+      h("span", null, h("i", { style: "background:repeating-linear-gradient(135deg,var(--muted) 0 6px,color-mix(in srgb,var(--muted) 45%,var(--surface)) 6px 9px)" }), t("kEst")));
   }
 
   function render() {
@@ -256,13 +275,16 @@
     const kinds = [["deadline", "kDeadline"], ["rebuttal", "kRebuttal"], ["notify", "kNotify"], ["conf", "kConf"]];
     $("kindChips").replaceChildren(...kinds.map(([k, key]) => h("button", {
       type: "button", class: "fchip", "aria-pressed": String(state.kinds.has(k)), onclick: () => toggleChip(state.kinds, k, "kinds"),
-    }, t(key))));
+    }, t(key))), h("button", {
+      type: "button", class: "fchip", "aria-pressed": String(state.showEst),
+      onclick: () => { state.showEst = !state.showEst; store.set("showEst", state.showEst); render(); },
+    }, t("kEst")));
     $("starOnly").setAttribute("aria-pressed", String(state.starOnly));
   }
 
   function chipFor(it, ds, col) {
     const c = it.c;
-    const title = `${label(it)} · ${whenText(it)}${it.ev.note ? " · " + it.ev.note : ""}`;
+    const title = [label(it), whenText(it), noteText(it)].filter(Boolean).join(" · ");
     const open = (e) => { e.stopPropagation(); openDetail(c.id); };
     if (it.kind === "conf") {
       const rs = ds === it.date, re = ds === it.end;
@@ -272,8 +294,8 @@
       }, rs || col === 0 ? label(it, true) : " ");
     }
     return h("button", {
-      type: "button", class: `chip k-${it.kind}${it.inst.t < Date.now() ? " past" : ""}`, style: `--c:${colorOf(c)}`, title, onclick: open,
-    }, label(it, true), it.ev.time ? h("span", { class: "t" }, `${it.ev.time} ${it.ed.tz || ""}`.trim()) : null);
+      type: "button", class: `chip k-${it.kind}${it.ev.est ? " est" : ""}${it.inst.t < Date.now() ? " past" : ""}`, style: `--c:${colorOf(c)}`, title, onclick: open,
+    }, (it.ev.est ? "~" : "") + label(it, true), it.ev.time ? h("span", { class: "t" }, `${it.ev.time} ${it.ed.tz || ""}`.trim()) : null);
   }
 
   const KIND_RANK = { abstract: 0, paper: 0, rebuttal: 1, notify: 1, conf: 2 };
@@ -311,7 +333,7 @@
       list.slice(0, MAX).forEach((it) => cell.append(chipFor(it, ds, col)));
       if (list.length > MAX) cell.append(h("button", { type: "button", class: "more", onclick: (e) => { e.stopPropagation(); selectDay(ds); } }, t("more", list.length - MAX)));
       if (list.length) cell.append(h("div", { class: "dots", "aria-hidden": "true" },
-        list.slice(0, 8).map((it) => h("span", { class: `dot k-${it.kind}`, style: `--c:${colorOf(it.c)}` }))));
+        list.slice(0, 8).map((it) => h("span", { class: `dot k-${it.kind}${it.ev.est ? " est" : ""}`, style: `--c:${colorOf(it.c)}` }))));
       cal.append(cell);
     }
     const p = $("dayPanel");
@@ -324,8 +346,8 @@
     if (!list.length) p.append(h("p", { class: "empty" }, t("nothingThisDay")));
     for (const it of list) {
       p.append(h("button", { type: "button", class: "drow", style: `--c:${colorOf(it.c)}`, onclick: () => openDetail(it.c.id) },
-        h("span", { class: `bar k-${it.kind}` }),
-        h("span", null, h("b", null, label(it)), h("small", null, whenText(it) + (it.ev.note ? ` · ${it.ev.note}` : "")))));
+        h("span", { class: `bar k-${it.kind}${it.ev.est ? " est" : ""}` }),
+        h("span", null, h("b", null, label(it)), h("small", null, [whenText(it), noteText(it)].filter(Boolean).join(" · ")))));
     }
   }
 
@@ -335,7 +357,7 @@
     const ol = $("upcoming");
     ol.replaceChildren();
     const nowMs = Date.now();
-    const up = ITEMS.filter((it) => DEADLINES.has(it.kind) && it.inst.t >= nowMs && confVisible(it.c))
+    const up = ITEMS.filter((it) => DEADLINES.has(it.kind) && !it.ev.est && it.inst.t >= nowMs && confVisible(it.c))
       .sort((a, b) => a.inst.t - b.inst.t).slice(0, 10);
     if (!up.length) { ol.append(h("li", { class: "empty" }, t("noUpcoming"))); return; }
     up.forEach((it, idx) => {
@@ -374,11 +396,12 @@
       const l = isConf ? null : timeLeft(it.inst.t);
       box.append(h("button", { type: "button", class: `lrow${past ? " past" : ""}`, style: `--c:${colorOf(it.c)}`, onclick: () => openDetail(it.c.id) },
         h("span", { class: "dt" }, fmtDay(it.date)),
-        h("span", { class: `bar k-${it.kind}` }),
+        h("span", { class: `bar k-${it.kind}${it.ev.est ? " est" : ""}` }),
         h("span", { class: "tx" },
           h("b", null, label(it)),
-          h("small", null, [whenText(it), it.c.rankCcf !== "N" ? `CCF-${it.c.rankCcf}` : "", it.ev.note || ""].filter(Boolean).join(" · "))),
+          h("small", null, [whenText(it), it.c.rankCcf !== "N" ? `CCF-${it.c.rankCcf}` : "", noteText(it)].filter(Boolean).join(" · "))),
         past ? h("span", { class: "pill" }, isConf ? t("ended") : t("passed"))
+          : it.ev.est ? h("span", { class: "pill est" }, t("est"))
           : l ? h("span", { class: `pill${l.days < 7 ? " soon" : ""}` }, leftText(it.inst.t)) : h("span")));
     }
   }
@@ -450,15 +473,18 @@
       fact(t("place"), ed.place);
       fact(t("dates"), ed.date);
       fact(t("tz"), ed.tz);
-      const rows = ITEMS.filter((it) => it.c === c && it.ed === ed && it.kind !== "conf").map((it) => {
+      const rows = ITEMS.filter((it) => it.c === c && it.ed === ed && it.kind !== "conf" && (state.showEst || !it.ev.est)).map((it) => {
         const past = it.inst.t < nowMs;
         return h("tr", { class: past ? "past" : null },
-          h("td", null, h("span", { class: `kindtag k-${it.kind}`, style: `--c:${colorOf(c)}` }), t(it.kind), it.ev.note ? h("span", { class: "note" }, it.ev.note) : null),
+          h("td", null, h("span", { class: `kindtag k-${it.kind}${it.ev.est ? " est" : ""}`, style: `--c:${colorOf(c)}` }), t(it.kind),
+            noteText(it) ? h("span", { class: "note" }, noteText(it)) : null),
           h("td", { class: "mono" }, whenText(it)),
           h("td", { class: "mono" }, it.inst.zoned ? fmtLocal(it.inst.t) : t("noTime")),
-          h("td", null, leftText(it.inst.t)));
+          h("td", null, it.ev.est ? `${t("est")} · ${leftText(it.inst.t)}` : leftText(it.inst.t)));
       });
-      const sec = h("section", { class: "edition" }, h("h3", null, `${c.title} ${ed.year || ""}`.trim()), facts);
+      if (ed.est && !rows.length) continue;
+      const sec = h("section", { class: "edition" }, h("h3", null, `${c.title} ${ed.year || ""}`.trim()),
+        ed.est ? h("p", { class: "note" }, t("estEdition", ed.year - 1)) : null, facts);
       if (rows.length) {
         sec.append(h("div", { class: "evtable" }, h("table", null,
           h("thead", null, h("tr", null, h("th", null, t("type")), h("th", null, t("published")), h("th", null, t("yourTime")), h("th", null, t("countdown")))),
@@ -496,6 +522,13 @@
     searchTimer = setTimeout(() => { state.query = e.target.value.trim(); render(); }, 150);
   });
   $("langBtn").addEventListener("click", () => { lang = lang === "zh" ? "en" : "zh"; store.set("lang", lang); render(); });
+  $("themeBtn").addEventListener("click", () => {
+    const next = themeNow() === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    store.set("theme", next);
+    applyTheme();
+  });
+  if (sysDark && sysDark.addEventListener) sysDark.addEventListener("change", applyTheme);
   setInterval(() => { if ($("sheet").hidden) render(); }, 60000);
 
   render();

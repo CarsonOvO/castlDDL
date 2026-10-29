@@ -7,8 +7,8 @@ X-WR-CALNAME:castlDDL
 X-PUBLISHED-TTL:PT12H
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
-UID:SC-acisp-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-acisp-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261201T115959Z
 DTEND:20261201T115959Z
 SUMMARY:ACISP 2027 paper deadline (1st round Deadline)
@@ -17,8 +17,8 @@ DESCRIPTION:Australasia Conference on Information Security and Privacy\nCCF
 URL:https://acisp.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-acisp-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-acisp-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270302T115959Z
 DTEND:20270302T115959Z
 SUMMARY:ACISP 2027 paper deadline (2nd round Deadline)
@@ -27,8 +27,8 @@ DESCRIPTION:Australasia Conference on Information Security and Privacy\nCCF
 URL:https://acisp.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-acns-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-acns-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270122T115959Z
 DTEND:20270122T115959Z
 SUMMARY:ACNS 2027 paper deadline (Cycle 2 Submission deadline)
@@ -37,8 +37,8 @@ DESCRIPTION:Applied Cryptography and Network Security\nCCF C\nPublished dea
 URL:https://acns2027.isg.rhul.ac.uk/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-asiaccs-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-asiaccs-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261212T115959Z
 DTEND:20261212T115959Z
 SUMMARY:AsiaCCS 2027 paper deadline (2nd round Deadline)
@@ -48,8 +48,8 @@ DESCRIPTION:Asia Conference on Computer and Communications Security\nCCF C\
 URL:https://asiaccs2027.cityu.edu.mo/index.html
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-blocksys-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-blocksys-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261201T115959Z
 DTEND:20261201T115959Z
 SUMMARY:BlockSys 2027 paper deadline (Round 1 Submission Deadline)
@@ -59,8 +59,8 @@ DESCRIPTION:International Conference on Blockchain\, Artificial Intelligenc
 URL:https://blocksys.info/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-blocksys-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-blocksys-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270201T115959Z
 DTEND:20270201T115959Z
 SUMMARY:BlockSys 2027 paper deadline (Round 2 Submission Deadline)
@@ -70,8 +70,8 @@ DESCRIPTION:International Conference on Blockchain\, Artificial Intelligenc
 URL:https://blocksys.info/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-ccgrid-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-ccgrid-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261125T115959Z
 DTEND:20261125T115959Z
 SUMMARY:CCGRID 2027 abstract deadline
@@ -81,8 +81,8 @@ DESCRIPTION:IEEE International Symposium on Cluster\, Cloud and Internet Co
 URL:https://hpcclab.org/ccgrid27/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-ccgrid-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-ccgrid-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261202T115959Z
 DTEND:20261202T115959Z
 SUMMARY:CCGRID 2027 paper deadline
@@ -92,8 +92,8 @@ DESCRIPTION:IEEE International Symposium on Cluster\, Cloud and Internet Co
 URL:https://hpcclab.org/ccgrid27/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-ches-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-ches-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261016T115959Z
 DTEND:20261016T115959Z
 SUMMARY:CHES 2027 paper deadline (Schedule for TCHES Volume 2027/2)
@@ -103,8 +103,8 @@ DESCRIPTION:International Conference on Cryptographic Hardware and Embedded
 URL:https://ches.iacr.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-ches-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-ches-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270116T115959Z
 DTEND:20270116T115959Z
 SUMMARY:CHES 2027 paper deadline (Schedule for TCHES Volume 2027/3)
@@ -114,8 +114,8 @@ DESCRIPTION:International Conference on Cryptographic Hardware and Embedded
 URL:https://ches.iacr.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-ches-2027-0-paper-3@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-ches-2027-paper-3@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270416T115959Z
 DTEND:20270416T115959Z
 SUMMARY:CHES 2027 paper deadline (Schedule for TCHES Volume 2027/4)
@@ -125,8 +125,8 @@ DESCRIPTION:International Conference on Cryptographic Hardware and Embedded
 URL:https://ches.iacr.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-chiir-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-chiir-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261009T115959Z
 DTEND:20261009T115959Z
 SUMMARY:CHIIR 2027 abstract deadline
@@ -136,8 +136,8 @@ DESCRIPTION:ACM SIGIR Conference on Human Information Interaction and Retri
 URL:https://chiir2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-chiir-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-chiir-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261016T115959Z
 DTEND:20261016T115959Z
 SUMMARY:CHIIR 2027 paper deadline
@@ -147,8 +147,8 @@ DESCRIPTION:ACM SIGIR Conference on Human Information Interaction and Retri
 URL:https://chiir2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-codaspy-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-codaspy-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261117T115959Z
 DTEND:20261117T115959Z
 SUMMARY:CODASPY 2027 abstract deadline
@@ -158,8 +158,8 @@ DESCRIPTION:ACM Conference on Data and Application Security and Privacy\nCC
 URL:https://www.codaspy.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-codaspy-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-codaspy-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261124T115959Z
 DTEND:20261124T115959Z
 SUMMARY:CODASPY 2027 paper deadline
@@ -169,8 +169,8 @@ DESCRIPTION:ACM Conference on Data and Application Security and Privacy\nCC
 URL:https://www.codaspy.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-csfw-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-csfw-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261016T115959Z
 DTEND:20261016T115959Z
 SUMMARY:CSFW 2027 paper deadline (Fall)
@@ -179,8 +179,8 @@ DESCRIPTION:IEEE Computer Security Foundations Symposium\nCCF B\nPublished
 URL:https://www.ieee-security.org/TC/CSF2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-csfw-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-csfw-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270129T115959Z
 DTEND:20270129T115959Z
 SUMMARY:CSFW 2027 paper deadline (Winter)
@@ -189,8 +189,8 @@ DESCRIPTION:IEEE Computer Security Foundations Symposium\nCCF B\nPublished
 URL:https://www.ieee-security.org/TC/CSF2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-ct-rsa-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-ct-rsa-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261023T115959Z
 DTEND:20261023T115959Z
 SUMMARY:CT-RSA 2027 paper deadline (Paper submission deadline)
@@ -200,8 +200,8 @@ DESCRIPTION:Cryptographer's Track at RSA Conference\nCCF C\nPublished deadl
 URL:https://www.esat.kuleuven.be/cosic/events/ct-rsa-2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-dasfaa-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-dasfaa-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261126T115900Z
 DTEND:20261126T115900Z
 SUMMARY:DASFAA 2027 paper deadline (Research papers)
@@ -210,8 +210,8 @@ DESCRIPTION:Database Systems for Advanced Applications\nCCF B\nPublished de
 URL:https://dasfaa2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-dfrws-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-dfrws-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261003T115959Z
 DTEND:20261003T115959Z
 SUMMARY:DFRWS 2027 abstract deadline (Extended deadlines)
@@ -220,8 +220,8 @@ DESCRIPTION:Digital Forensic Research Workshop\nCCF C\nPublished deadline:
 URL:https://dfrws.org/conferences/dfceurope2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-dfrws-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-dfrws-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261010T115959Z
 DTEND:20261010T115959Z
 SUMMARY:DFRWS 2027 paper deadline (Extended deadlines)
@@ -230,8 +230,8 @@ DESCRIPTION:Digital Forensic Research Workshop\nCCF C\nPublished deadline:
 URL:https://dfrws.org/conferences/dfceurope2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-dsn-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-dsn-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261126T115959Z
 DTEND:20261126T115959Z
 SUMMARY:DSN 2027 abstract deadline
@@ -241,8 +241,8 @@ DESCRIPTION:International Conference on Dependable Systems and Networks\nCC
 URL:https://dsn2027-berlin.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-dsn-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-dsn-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261203T115959Z
 DTEND:20261203T115959Z
 SUMMARY:DSN 2027 paper deadline
@@ -252,8 +252,8 @@ DESCRIPTION:International Conference on Dependable Systems and Networks\nCC
 URL:https://dsn2027-berlin.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-ecir-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-ecir-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261006T115959Z
 DTEND:20261006T115959Z
 SUMMARY:ECIR 2027 paper deadline
@@ -262,8 +262,8 @@ DESCRIPTION:European Conference on Information Retrieval\nCCF C\nPublished
 URL:https://ecir2027.co.uk/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-edbt-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-edbt-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261008T000000Z
 DTEND:20261008T000000Z
 SUMMARY:EDBT 2027 paper deadline
@@ -273,8 +273,8 @@ DESCRIPTION:International Conference on Extending Database Technology\nCCF
 URL:https://edbticdt2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-eswc-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-eswc-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261211T115959Z
 DTEND:20261211T115959Z
 SUMMARY:ESWC 2027 abstract deadline (Research track\; rebuttal period Janua
@@ -284,8 +284,8 @@ DESCRIPTION:European Semantic Web Conference\nCCF C\nPublished deadline: 20
 URL:https://2027.eswc-conferences.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-eswc-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-eswc-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261218T115959Z
 DTEND:20261218T115959Z
 SUMMARY:ESWC 2027 paper deadline (Research track\; rebuttal period January 
@@ -295,8 +295,8 @@ DESCRIPTION:European Semantic Web Conference\nCCF C\nPublished deadline: 20
 URL:https://2027.eswc-conferences.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-eurosp-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-eurosp-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261126T115959Z
 DTEND:20261126T115959Z
 SUMMARY:EuroS&P 2027 abstract deadline
@@ -305,8 +305,8 @@ DESCRIPTION:IEEE European Symposium on Security and Privacy\nCCF C\nPublish
 URL:https://eurosp2027.ieee-security.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-eurosp-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-eurosp-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261203T115959Z
 DTEND:20261203T115959Z
 SUMMARY:EuroS&P 2027 paper deadline
@@ -315,8 +315,8 @@ DESCRIPTION:IEEE European Symposium on Security and Privacy\nCCF C\nPublish
 URL:https://eurosp2027.ieee-security.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-fse-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-fse-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261202T115959Z
 DTEND:20261202T115959Z
 SUMMARY:FSE 2027 paper deadline (ToSC\, Volume 2027\, Issue 1 Submission de
@@ -326,8 +326,8 @@ DESCRIPTION:Fast Software Encryption\nCCF B\nPublished deadline: 2026-12-01
 URL:https://fse.iacr.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SE-hotos-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SE-hotos-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270202T115959Z
 DTEND:20270202T115959Z
 SUMMARY:HotOS 2027 paper deadline
@@ -337,8 +337,8 @@ DESCRIPTION:USENIX Workshop on Hot Topics in Operating Systems\nCCF B\nPubl
 URL:https://sigops.org/s/conferences/hotos/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-icde-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-icde-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261112T010000Z
 DTEND:20261112T010000Z
 SUMMARY:ICDE 2027 paper deadline (second round\; notification date is appro
@@ -348,8 +348,8 @@ DESCRIPTION:IEEE International Conference on Data Engineering\nCCF A\nPubli
 URL:https://icde2027.github.io/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-icdf2c-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-icdf2c-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261216T115959Z
 DTEND:20261216T115959Z
 SUMMARY:ICDF2C 2027 paper deadline (Full Paper Submission deadline)
@@ -359,8 +359,8 @@ DESCRIPTION:International Conference on Digital Forensics & Cyber Crime\nCC
 URL:https://icdf2c.eai-conferences.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-icdm-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-icdm-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270607T115900Z
 DTEND:20270607T115900Z
 SUMMARY:ICDM 2027 paper deadline (Full papers\; dates are tentative and sub
@@ -370,8 +370,8 @@ DESCRIPTION:IEEE International Conference on Data Mining\nCCF B\nPublished
 URL:https://icdm2027-website.onrender.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-ics-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-ics-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261202T115959Z
 DTEND:20261202T115959Z
 SUMMARY:ICS 2027 abstract deadline
@@ -380,8 +380,8 @@ DESCRIPTION:ACM International Conference on Supercomputing\nCCF B\nPublishe
 URL:https://ics-conference.org/index.html
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-ics-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-ics-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261208T115959Z
 DTEND:20261208T115959Z
 SUMMARY:ICS 2027 paper deadline
@@ -390,8 +390,8 @@ DESCRIPTION:ACM International Conference on Supercomputing\nCCF B\nPublishe
 URL:https://ics-conference.org/index.html
 END:VEVENT
 BEGIN:VEVENT
-UID:HI-icwsm-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:HI-icwsm-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270116T115959Z
 DTEND:20270116T115959Z
 SUMMARY:ICWSM 2027 paper deadline (3rd Full-paper Deadline)
@@ -400,8 +400,8 @@ DESCRIPTION:The International AAAI Conference on Web and Social Media\nCCF
 URL:https://www.icwsm.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-ifip119-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-ifip119-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261011T115959Z
 DTEND:20261011T115959Z
 SUMMARY:IFIP WG 11.9 2027 paper deadline (Submission Deadline)
@@ -411,8 +411,8 @@ DESCRIPTION:IFIP WG 11.9 International Conference on Digital Forensics\nCCF
 URL:https://www.ifip119.org/Conferences/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-ipdps-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-ipdps-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261002T115959Z
 DTEND:20261002T115959Z
 SUMMARY:IPDPS 2027 abstract deadline
@@ -421,8 +421,8 @@ DESCRIPTION:IEEE International Parallel and Distributed Processing Symposiu
 URL:https://www.ipdps.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-ipdps-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-ipdps-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261009T115959Z
 DTEND:20261009T115959Z
 SUMMARY:IPDPS 2027 paper deadline
@@ -431,8 +431,8 @@ DESCRIPTION:IEEE International Parallel and Distributed Processing Symposiu
 URL:https://www.ipdps.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-ismb-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-ismb-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270115T115900Z
 DTEND:20270115T115900Z
 SUMMARY:ISMB 2027 paper deadline (Proceedings\; conditional acceptance: Mar
@@ -444,8 +444,8 @@ DESCRIPTION:International Conference on Intelligent Systems for Molecular B
 URL:https://www.iscb.org/ismbeccb2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-ispa-2026-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-ispa-2026-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261001T115959Z
 DTEND:20261001T115959Z
 SUMMARY:ISPA 2026 paper deadline
@@ -455,8 +455,8 @@ DESCRIPTION:IEEE International Symposium on Parallel and Distributed Proces
 URL:https://ieee-ai-for-science.org/2026/ispa/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-mlsys-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-mlsys-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261030T200000Z
 DTEND:20261030T200000Z
 SUMMARY:MLSys 2027 paper deadline
@@ -465,8 +465,8 @@ DESCRIPTION:Conference on Machine Learning and Systems\nCCF N\nPublished de
 URL:https://mlsys.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-noms-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-noms-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261110T115959Z
 DTEND:20261110T115959Z
 SUMMARY:NOMS 2027 paper deadline
@@ -475,8 +475,8 @@ DESCRIPTION:IEEE/IFIP Network Operations and Management Symposium\nCCF N\nP
 URL:https://noms2027.ieee-noms.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SE-osdi-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SE-osdi-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261201T225959Z
 DTEND:20261201T225959Z
 SUMMARY:OSDI 2027 abstract deadline
@@ -486,8 +486,8 @@ DESCRIPTION:USENIX Symposium on Operating Systems Design and Implementation
 URL:https://www.usenix.org/conference/osdi27
 END:VEVENT
 BEGIN:VEVENT
-UID:SE-osdi-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SE-osdi-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261208T225959Z
 DTEND:20261208T225959Z
 SUMMARY:OSDI 2027 paper deadline
@@ -497,8 +497,8 @@ DESCRIPTION:USENIX Symposium on Operating Systems Design and Implementation
 URL:https://www.usenix.org/conference/osdi27
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-pakdd-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-pakdd-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261121T115959Z
 DTEND:20261121T115959Z
 SUMMARY:PAKDD 2027 paper deadline
@@ -508,8 +508,8 @@ DESCRIPTION:Pacific-Asia Conference on Knowledge Discovery and Data Mining\
 URL:https://www.pakdd2027.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-pdcat-2026-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-pdcat-2026-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261021T115959Z
 DTEND:20261021T115959Z
 SUMMARY:PDCAT 2026 paper deadline (Second Cycle)
@@ -519,8 +519,8 @@ DESCRIPTION:International Conference on Parallel and Distributed Computing\
 URL:https://www.pd-cat.org/2026/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-pets-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-pets-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261201T115959Z
 DTEND:20261201T115959Z
 SUMMARY:PETS 2027 paper deadline (Issue 3 Paper Submission Deadline)
@@ -529,8 +529,8 @@ DESCRIPTION:Privacy Enhancing Technologies Symposium\nCCF C\nPublished dead
 URL:https://petsymposium.org/cfp27.php
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-pets-2027-0-paper-3@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-pets-2027-paper-3@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270301T115959Z
 DTEND:20270301T115959Z
 SUMMARY:PETS 2027 paper deadline (Issue 4 Paper Submission Deadline)
@@ -539,8 +539,8 @@ DESCRIPTION:Privacy Enhancing Technologies Symposium\nCCF C\nPublished dead
 URL:https://petsymposium.org/cfp27.php
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-pods-2027-0-abstract-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-pods-2027-abstract-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261204T115959Z
 DTEND:20261204T115959Z
 SUMMARY:PODS 2027 abstract deadline (Second Submission Cycle)
@@ -549,8 +549,8 @@ DESCRIPTION:ACM Symposium on Principles of Database Systems\nCCF B\nPublish
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-pods-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-pods-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261211T115959Z
 DTEND:20261211T115959Z
 SUMMARY:PODS 2027 paper deadline (Second Submission Cycle)
@@ -559,8 +559,8 @@ DESCRIPTION:ACM Symposium on Principles of Database Systems\nCCF B\nPublish
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-recomb-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-recomb-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261029T115959Z
 DTEND:20261029T115959Z
 SUMMARY:RECOMB 2027 abstract deadline
@@ -570,8 +570,8 @@ DESCRIPTION:International Conference on Research inComputational Molecular
 URL:https://recomb.org/recomb2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-recomb-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-recomb-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261105T115959Z
 DTEND:20261105T115959Z
 SUMMARY:RECOMB 2027 paper deadline
@@ -581,8 +581,8 @@ DESCRIPTION:International Conference on Research inComputational Molecular
 URL:https://recomb.org/recomb2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-sp-2027-0-abstract-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-sp-2027-abstract-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261111T115959Z
 DTEND:20261111T115959Z
 SUMMARY:S&P 2027 abstract deadline (Second Paper submission deadline)
@@ -591,8 +591,8 @@ DESCRIPTION:IEEE Symposium on Security and Privacy\nCCF A\nPublished deadli
 URL:https://sp2027.ieee-security.org/index.html
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-sp-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-sp-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261118T115959Z
 DTEND:20261118T115959Z
 SUMMARY:S&P 2027 paper deadline (Second Paper submission deadline)
@@ -601,8 +601,8 @@ DESCRIPTION:IEEE Symposium on Security and Privacy\nCCF A\nPublished deadli
 URL:https://sp2027.ieee-security.org/index.html
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-sacmat-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-sacmat-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261031T115959Z
 DTEND:20261031T115959Z
 SUMMARY:SACMAT 2027 paper deadline (First Cycle)
@@ -611,8 +611,8 @@ DESCRIPTION:ACM Symposium on Access Control Models and Technologies\nCCF C\
 URL:https://www.sacmat.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-sacmat-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-sacmat-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270213T115959Z
 DTEND:20270213T115959Z
 SUMMARY:SACMAT 2027 paper deadline (Second Cycle)
@@ -621,8 +621,8 @@ DESCRIPTION:ACM Symposium on Access Control Models and Technologies\nCCF C\
 URL:https://www.sacmat.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-sais-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-sais-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270205T115959Z
 DTEND:20270205T115959Z
 SUMMARY:SAIS 2027 paper deadline (Paper submission deadline)
@@ -631,8 +631,8 @@ DESCRIPTION:USENIX Conference on Secure Agentic-AI Systems\nCCF N\nPublishe
 URL:https://www.usenix.org/conference/sais27
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-satml-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-satml-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20260930T115959Z
 DTEND:20260930T115959Z
 SUMMARY:SATML 2027 paper deadline
@@ -641,8 +641,8 @@ DESCRIPTION:IEEE Conference on Secure and Trustworthy Machine Learning\nCCF
 URL:https://satml.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-securecomm-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-securecomm-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270202T115959Z
 DTEND:20270202T115959Z
 SUMMARY:SecureComm 2027 paper deadline (Full Paper Submission deadline (Cyc
@@ -653,8 +653,8 @@ DESCRIPTION:International Conference on Security and Privacy in Communicati
 URL:https://securecomm.eai-conferences.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-securecomm-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-securecomm-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270416T115959Z
 DTEND:20270416T115959Z
 SUMMARY:SecureComm 2027 paper deadline (Full Paper Submission deadline (Cyc
@@ -665,8 +665,8 @@ DESCRIPTION:International Conference on Security and Privacy in Communicati
 URL:https://securecomm.eai-conferences.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigir-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigir-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270115T115959Z
 DTEND:20270115T115959Z
 SUMMARY:SIGIR 2027 abstract deadline
@@ -676,8 +676,8 @@ DESCRIPTION:International Conference on Research on Development in Informat
 URL:https://sigir2027.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigir-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigir-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270122T115959Z
 DTEND:20270122T115959Z
 SUMMARY:SIGIR 2027 paper deadline
@@ -687,8 +687,8 @@ DESCRIPTION:International Conference on Research on Development in Informat
 URL:https://sigir2027.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-sigmetrics-2027-0-abstract-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-sigmetrics-2027-abstract-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261003T115959Z
 DTEND:20261003T115959Z
 SUMMARY:SIGMETRICS 2027 abstract deadline (fall round)
@@ -698,8 +698,8 @@ DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
 URL:https://www.sigmetrics.org/sigmetrics2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-sigmetrics-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-sigmetrics-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261010T115959Z
 DTEND:20261010T115959Z
 SUMMARY:SIGMETRICS 2027 paper deadline (fall round)
@@ -709,8 +709,8 @@ DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
 URL:https://www.sigmetrics.org/sigmetrics2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-sigmetrics-2027-0-abstract-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-sigmetrics-2027-abstract-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270105T115959Z
 DTEND:20270105T115959Z
 SUMMARY:SIGMETRICS 2027 abstract deadline (winter round)
@@ -720,8 +720,8 @@ DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
 URL:https://www.sigmetrics.org/sigmetrics2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-sigmetrics-2027-0-paper-2@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-sigmetrics-2027-paper-2@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270112T115959Z
 DTEND:20270112T115959Z
 SUMMARY:SIGMETRICS 2027 paper deadline (winter round)
@@ -731,8 +731,8 @@ DESCRIPTION:ACM Special Interest Group on Measurement and Evaluation\nCCF B
 URL:https://www.sigmetrics.org/sigmetrics2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigmod-2027-0-abstract-3@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigmod-2027-abstract-3@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261011T115959Z
 DTEND:20261011T115959Z
 SUMMARY:SIGMOD 2027 abstract deadline (round 4)
@@ -741,8 +741,8 @@ DESCRIPTION:ACM Conference on Management of Data\nCCF A\nPublished deadline
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-sigmod-2027-0-paper-3@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-sigmod-2027-paper-3@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261018T115959Z
 DTEND:20261018T115959Z
 SUMMARY:SIGMOD 2027 paper deadline (round 4)
@@ -751,8 +751,8 @@ DESCRIPTION:ACM Conference on Management of Data\nCCF A\nPublished deadline
 URL:https://2027.sigmod.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-spaa-2027-0-abstract-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-spaa-2027-abstract-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270123T115959Z
 DTEND:20270123T115959Z
 SUMMARY:SPAA 2027 abstract deadline (Cycle 2)
@@ -761,8 +761,8 @@ DESCRIPTION:ACM Symposium on Parallelism in Algorithms and Architectures\nC
 URL:https://spaa.acm.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:DS-spaa-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DS-spaa-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270130T115959Z
 DTEND:20270130T115959Z
 SUMMARY:SPAA 2027 paper deadline (Cycle 2)
@@ -771,8 +771,8 @@ DESCRIPTION:ACM Symposium on Parallelism in Algorithms and Architectures\nC
 URL:https://spaa.acm.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-uss-2027-0-abstract-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-uss-2027-abstract-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270120T115959Z
 DTEND:20270120T115959Z
 SUMMARY:USENIX Security 2027 abstract deadline (Cycle 2 Deadline)
@@ -781,8 +781,8 @@ DESCRIPTION:USENIX Security Symposium\nCCF A\nPublished deadline: 2027-01-1
 URL:https://www.usenix.org/conference/usenixsecurity27
 END:VEVENT
 BEGIN:VEVENT
-UID:SC-uss-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:SC-uss-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270127T115959Z
 DTEND:20270127T115959Z
 SUMMARY:USENIX Security 2027 paper deadline (Cycle 2 Deadline)
@@ -791,8 +791,8 @@ DESCRIPTION:USENIX Security Symposium\nCCF A\nPublished deadline: 2027-01-2
 URL:https://www.usenix.org/conference/usenixsecurity27
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-6@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-6@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261002T000000Z
 DTEND:20261002T000000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -801,8 +801,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-7@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-7@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261026T000000Z
 DTEND:20261026T000000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -811,8 +811,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-7@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-7@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261102T010000Z
 DTEND:20261102T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -821,8 +821,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-8@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-8@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261126T010000Z
 DTEND:20261126T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -831,8 +831,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-8@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-8@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261202T010000Z
 DTEND:20261202T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -841,8 +841,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-9@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-9@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261226T010000Z
 DTEND:20261226T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -851,8 +851,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-9@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-9@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270102T010000Z
 DTEND:20270102T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -861,8 +861,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-10@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-10@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270126T010000Z
 DTEND:20270126T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -871,8 +871,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-10@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-10@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270202T010000Z
 DTEND:20270202T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -881,8 +881,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-abstract-11@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-abstract-11@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270226T010000Z
 DTEND:20270226T010000Z
 SUMMARY:VLDB 2027 abstract deadline
@@ -891,8 +891,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-vldb-2027-0-paper-11@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-vldb-2027-paper-11@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20270302T010000Z
 DTEND:20270302T010000Z
 SUMMARY:VLDB 2027 paper deadline
@@ -901,8 +901,8 @@ DESCRIPTION:International Conference on Very Large Data Bases\nCCF A\nPubli
 URL:https://www.vldb.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:DB-wsdm-2027-0-paper-1@castlddl
-DTSTAMP:20261029T045446Z
+UID:DB-wsdm-2027-paper-1@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261118T115959Z
 DTEND:20261118T115959Z
 SUMMARY:WSDM 2027 paper deadline (Short Paper)
@@ -912,8 +912,8 @@ DESCRIPTION:International Conference on Web Search and Data Mining\nCCF B\n
 URL:https://wsdm-conference.org/2027/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-www-2027-0-abstract-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-www-2027-abstract-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261019T115959Z
 DTEND:20261019T115959Z
 SUMMARY:WWW 2027 abstract deadline
@@ -922,8 +922,8 @@ DESCRIPTION:International World Wide Web Conferences\nCCF A\nPublished dead
 URL:https://www2027.thewebconf.org/
 END:VEVENT
 BEGIN:VEVENT
-UID:MX-www-2027-0-paper-0@castlddl
-DTSTAMP:20261029T045446Z
+UID:MX-www-2027-paper-0@castlddl
+DTSTAMP:20261029T050504Z
 DTSTART:20261026T115959Z
 DTEND:20261026T115959Z
 SUMMARY:WWW 2027 paper deadline

@@ -10,7 +10,8 @@ Conference deadline calendar for the lab's research directions:
 
 The site shows abstract deadlines, paper deadlines, rebuttal periods, notification dates and
 conference dates as a month calendar and as a list. Deadlines are converted to the viewer's
-local time, with a countdown. Starred venues and filters are kept in the viewer's browser.
+local time, with a countdown. Starred venues, filters and the light/dark theme choice are kept
+in the viewer's browser.
 
 ## Where the data comes from
 
@@ -20,6 +21,16 @@ community-maintained list of CCF-ranked venues. A GitHub Action
 rebuilds `docs/data/deadlines.json` and the calendar feeds in `docs/ics/`, commits them,
 and deploys `docs/` to GitHub Pages. ccfddl can lag behind or differ from a venue's call
 for papers. Check the official site before you submit.
+
+## Estimated dates
+
+ccfddl lists only dates that a venue has announced. For many venues the next round is missing
+for months (for example, KDD 2027 lists its July 2026 round, but not its February 2027 round).
+The build therefore adds estimated dates: each abstract and paper deadline moved forward by one
+year, when no announced deadline of the same type lies within 45 days of it and the date is
+within the next 365 days. The site shows estimated dates hatched and in italics, with a "~" in
+front. They are not in the countdown list or in the calendar feeds. When ccfddl adds the real
+date, the next update replaces the estimate. The "Estimated dates" filter hides them.
 
 ## Change the venue list
 
@@ -35,7 +46,7 @@ the Actions tab, select "Update deadlines and deploy", and click "Run workflow".
 
 The sidebar on the site lists one feed for all directions and one per direction. Add a
 feed URL to Google Calendar (Other calendars → From URL), Outlook or Apple Calendar.
-Feeds contain abstract and paper deadlines only.
+Feeds contain announced abstract and paper deadlines only, no estimated dates.
 
 ## Build locally
 
