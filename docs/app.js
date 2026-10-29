@@ -24,7 +24,7 @@
   const I18N = {
     zh: {
       htmlLang: "zh-CN", locale: "zh-CN", langBtn: "English",
-      subtitle: "实验室会议截稿日历。数据来自 ccfddl 和组内录入，按组内的研究方向整理。截稿时间自动换算成你的本地时间。",
+      subtitle: "组内常投会议的截稿时间、录用通知和会期。点日期看详情；看到 ccfddl 还没有的新消息，可以点“补充日期”更新。",
       directions: "研究方向", rank: "CCF 等级", coreRank: "CORE 等级", show: "显示", find: "查找",
       hits: "找到的会议", noHits: "网站上没有这个会议。可以点右上角“补充日期”把它加进来。",
       hiddenByFilter: "被上面的筛选条件隐藏了，日历里不显示", nextDate: (s) => `下一个截止 ${s}`, noNext: "暂无未来截止日期",
@@ -58,7 +58,7 @@
     },
     en: {
       htmlLang: "en", locale: "en-US", langBtn: "中文",
-      subtitle: "Conference deadlines for the lab's research directions. Data from ccfddl and from lab members. Deadlines are shown in your local time.",
+      subtitle: "Deadlines, notifications and conference dates for the venues our lab submits to. Click a date for details. If you see news that ccfddl does not have yet, use \"Add a date\".",
       directions: "Directions", rank: "CCF rank", coreRank: "CORE rank", show: "Show", find: "Find",
       hits: "Venues found", noHits: "This venue is not on the site. Use \"Add a date\" (top right) to add it.",
       hiddenByFilter: "Hidden by the filters above, so the calendar does not show it", nextDate: (s) => `next deadline ${s}`, noNext: "no future deadline yet",
