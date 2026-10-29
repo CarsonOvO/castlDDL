@@ -23,4 +23,16 @@
 #   paper: '2027-02-08 23:59'
 #   link: https://kdd2027.kdd.org/research-track-call-for-papers/
 
-[]
+- venue: SE/middleware
+  year: 2027
+  round: Winter cycle
+  timezone: AoE
+  abstract: '2026-11-27'
+  paper: '2026-12-04'
+  rebuttal: '2027-03-07'
+  notify: '2027-03-29'
+  dates: December 13-17, 2027
+  place: Kyoto, Japan
+  link: https://middleware-conf.github.io/2027/call-for-papers/
+  by: CarsonOvO
+  issue: 1
