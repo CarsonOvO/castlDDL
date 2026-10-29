@@ -8,7 +8,7 @@
 #   venue     ccfddl ID (DB/sigkdd) or LAB/<name> for a venue that ccfddl does not list
 #   year      conference year
 #   round     optional label, shown next to the date
-#   timezone  AoE, UTC, PT, ET, CET or UTC+N / UTC-N
+#   timezone  AoE, UTC, PT, ET, CET, UTC+N / UTC-N, or unstated (the call gives no time zone)
 #   abstract, paper, rebuttal, notify   'YYYY-MM-DD HH:MM' or 'YYYY-MM-DD'
 #   dates     conference dates, for example 'August 1-5, 2027'
 #   place, link (source page), by (who entered it), issue (issue number)

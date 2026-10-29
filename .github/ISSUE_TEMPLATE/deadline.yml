@@ -57,7 +57,7 @@ body:
     id: timezone
     attributes:
       label: 时区 Time zone
-      description: 上面所有日期用的时区。PT 和 ET 会自动处理夏令时。
+      description: 上面所有日期用的时区。PT 和 ET 会自动处理夏令时。官网没写时区就选“未注明”，网站只显示日期。
       options:
         - AoE (UTC-12)
         - UTC
@@ -71,6 +71,7 @@ body:
         - UTC-5
         - UTC-7
         - UTC-8
+        - 未注明 (not stated)
       default: 0
     validations:
       required: true

@@ -38,6 +38,10 @@ try { var th = JSON.parse(localStorage.getItem("castlddl.theme")); if (th === "d
       <div id="rankChips" class="chips"></div>
     </div>
     <div class="frow">
+      <span class="flabel" data-i18n="coreRank"></span>
+      <div id="coreChips" class="chips"></div>
+    </div>
+    <div class="frow">
       <span class="flabel" data-i18n="show"></span>
       <div id="kindChips" class="chips"></div>
     </div>
@@ -47,6 +51,10 @@ try { var th = JSON.parse(localStorage.getItem("castlddl.theme")); if (th === "d
         <input id="search" class="search" type="search" autocomplete="off">
         <button id="starOnly" class="fchip star" type="button" aria-pressed="false"><span aria-hidden="true">★</span> <span data-i18n="starredOnly"></span></button>
       </div>
+    </div>
+    <div class="frow" id="hitsRow" hidden>
+      <span class="flabel" data-i18n="hits"></span>
+      <div id="searchHits" class="chips"></div>
     </div>
   </section>
 

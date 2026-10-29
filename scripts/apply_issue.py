@@ -93,7 +93,9 @@ def check(fields, ccf, extra, manual, cfg):
         entry["round"] = fields["round"][:80]
 
     tz = (fields.get("timezone") or "AoE").split()[0]
-    if build.tz_for(tz) is None:
+    if tz == "未注明":
+        tz = build.TZ_UNSTATED
+    elif build.tz_for(tz) is None:
         errors.append(f"**{labels('timezone')}** `{tz}` 无法识别。")
     entry["timezone"] = tz
 

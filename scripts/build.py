@@ -39,6 +39,7 @@ TIMELINE_KEYS = (("abstract_deadline", "abstract"), ("deadline", "paper"),
 ICS_KINDS = {"abstract": "abstract deadline", "paper": "paper deadline"}
 ESTIMATE_WINDOW = 45  # days; rounds of quarterly venues (SIGMOD) are ~90 days apart
 MANUAL_KINDS = ("abstract", "paper", "rebuttal", "notify")
+TZ_UNSTATED = "unstated"  # the call gives dates without a time zone; tz_for() returns None
 
 
 def fetch(url, timeout=60):
@@ -368,15 +369,22 @@ def write_ics(path, name, confs, now):
     for c in confs:
         for ed in c["editions"]:
             for ev in ed["events"]:
-                if ev["kind"] not in ICS_KINDS or "utc" not in ev or ev.get("est"):
+                if ev["kind"] not in ICS_KINDS or ev.get("est"):
                     continue
-                when = dt.datetime.strptime(ev["utc"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
+                if "utc" in ev:
+                    when = dt.datetime.strptime(ev["utc"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
+                    span = [f"DTSTART:{when:%Y%m%dT%H%M%SZ}", f"DTEND:{when:%Y%m%dT%H%M%SZ}"]
+                else:  # no time zone given: an all-day event on the published date
+                    day = dt.date.fromisoformat(ev["date"])
+                    when = dt.datetime.combine(day, dt.time(23, 59), dt.timezone.utc)
+                    span = [f"DTSTART;VALUE=DATE:{day:%Y%m%d}", f"DTEND;VALUE=DATE:{day + dt.timedelta(days=1):%Y%m%d}"]
                 if when < since:
                     continue
-                ts = when.strftime("%Y%m%dT%H%M%SZ")
                 title = f"{c['title']} {ed.get('year') or ''}".strip()
                 summary = f"{title} {ICS_KINDS[ev['kind']]}" + (f" ({ev['note']})" if ev.get("note") else "")
-                published = f"{ev['date']} {ev.get('time', '')} {ev.get('tz') or ed.get('tz', '')}".replace("  ", " ").strip()
+                zone = ev.get("tz") or ed.get("tz", "")
+                zone = "(time zone not stated)" if zone == TZ_UNSTATED else zone
+                published = f"{ev['date']} {ev.get('time', '')} {zone}".replace("  ", " ").strip()
                 desc = [c.get("description") or "", f"CCF {c.get('rank', {}).get('ccf', 'N')}",
                         f"Published deadline: {published}"]
                 if ev.get("src") == "lab":
@@ -388,7 +396,7 @@ def write_ics(path, name, confs, now):
                     uid += "-x"
                 uids.add(uid)
                 uid += "@castlddl"
-                lines += ["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{stamp}", f"DTSTART:{ts}", f"DTEND:{ts}",
+                lines += ["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{stamp}", *span,
                           f"SUMMARY:{ics_escape(summary)}", f"DESCRIPTION:{ics_escape(chr(10).join(desc))}"]
                 if ed.get("link"):
                     lines.append(f"URL:{ed['link']}")

@@ -25,7 +25,9 @@
     zh: {
       htmlLang: "zh-CN", locale: "zh-CN", langBtn: "English",
       subtitle: "实验室会议截稿日历。数据来自 ccfddl 和组内录入，按组内的研究方向整理。截稿时间自动换算成你的本地时间。",
-      directions: "研究方向", rank: "CCF 等级", show: "显示", find: "查找",
+      directions: "研究方向", rank: "CCF 等级", coreRank: "CORE 等级", show: "显示", find: "查找",
+      hits: "找到的会议", noHits: "网站上没有这个会议。可以点右上角“补充日期”把它加进来。",
+      hiddenByFilter: "被上面的筛选条件隐藏了，日历里不显示", nextDate: (s) => `下一个截止 ${s}`, noNext: "暂无未来截止日期",
       starredOnly: "只看关注", search: "搜索会议，例如 SIGMOD", rankOther: "无等级",
       kDeadline: "摘要与论文截止", kRebuttal: "Rebuttal", kNotify: "录用通知", kConf: "会期", kEst: "预计日期",
       est: "预计", estNote: (y) => `按 ${y} 年的日期推算，官方还没公布`,
@@ -42,7 +44,7 @@
       subscribe: "订阅到日历",
       subscribeHint: "把地址加到 Google 日历（其他日历 → 通过网址添加）、Outlook 或 Apple 日历。日历 app 会自己定时更新。订阅只包含已公布的摘要和论文截止，不含预计日期。",
       allDirs: "全部方向", copy: "复制地址", copied: "已复制", open: "打开",
-      website: "官网", place: "地点", dates: "会期", tz: "时区", dblp: "DBLP",
+      website: "官网", place: "地点", dates: "会期", tz: "时区", dblp: "DBLP", tzUnstated: "官网未注明",
       type: "类型", published: "公布时间", countdown: "倒计时", passed: "已过", ended: "已结束",
       left: (d) => `还剩 ${d} 天`, leftH: (n) => `还剩 ${n} 小时`,
       star: "关注", starred: "已关注", close: "关闭",
@@ -57,7 +59,9 @@
     en: {
       htmlLang: "en", locale: "en-US", langBtn: "中文",
       subtitle: "Conference deadlines for the lab's research directions. Data from ccfddl and from lab members. Deadlines are shown in your local time.",
-      directions: "Directions", rank: "CCF rank", show: "Show", find: "Find",
+      directions: "Directions", rank: "CCF rank", coreRank: "CORE rank", show: "Show", find: "Find",
+      hits: "Venues found", noHits: "This venue is not on the site. Use \"Add a date\" (top right) to add it.",
+      hiddenByFilter: "Hidden by the filters above, so the calendar does not show it", nextDate: (s) => `next deadline ${s}`, noNext: "no future deadline yet",
       starredOnly: "Starred only", search: "Search, e.g. SIGMOD", rankOther: "Unranked",
       kDeadline: "Abstract & paper deadlines", kRebuttal: "Rebuttal", kNotify: "Notification", kConf: "Conference", kEst: "Estimated dates",
       est: "estimated", estNote: (y) => `Estimated from the ${y} date; not announced yet`,
@@ -74,7 +78,7 @@
       subscribe: "Subscribe in your calendar",
       subscribeHint: "Add a URL to Google Calendar (Other calendars → From URL), Outlook or Apple Calendar. The calendar app refreshes it on its own. Feeds contain announced abstract and paper deadlines only, no estimated dates.",
       allDirs: "All directions", copy: "Copy URL", copied: "Copied", open: "Open",
-      website: "Website", place: "Place", dates: "Dates", tz: "Time zone", dblp: "DBLP",
+      website: "Website", place: "Place", dates: "Dates", tz: "Time zone", dblp: "DBLP", tzUnstated: "not stated",
       type: "Type", published: "Published", countdown: "Countdown", passed: "passed", ended: "ended",
       left: (d) => `${d} days left`, leftH: (n) => `${n} hours left`,
       star: "Star", starred: "Starred", close: "Close",
@@ -130,12 +134,14 @@
   const DEADLINES = new Set(["abstract", "paper"]);
   const KIND_GROUP = { abstract: "deadline", paper: "deadline", rebuttal: "rebuttal", notify: "notify", conf: "conf" };
   const RANKS = ["A", "B", "C", "N"];
+  const CORE_RANKS = ["A*", "A", "B", "C", "N"];
   let DATA = null, CONFS = [], ITEMS = [], DIRS = [], dirIdx = {};
 
   const now0 = new Date();
   const state = {
     dirs: null,
     ranks: new Set(store.get("ranks", RANKS)),
+    coreRanks: new Set(store.get("coreRanks", CORE_RANKS)),
     kinds: new Set(store.get("kinds", ["deadline", "notify"])),
     showEst: store.get("showEst", true),
     starOnly: store.get("starOnly", false),
@@ -172,6 +178,7 @@
       ...c,
       dirs: c.dirs || [],
       rankCcf: RANKS.includes(c.rank && c.rank.ccf) ? c.rank.ccf : "N",
+      rankCore: CORE_RANKS.includes(c.rank && c.rank.core) ? c.rank.core : "N",
       color: c.dirs && c.dirs.length && c.dirs[0] in dirIdx ? dirIdx[c.dirs[0]] : -1,
       editions: c.editions || [],
     }));
@@ -188,16 +195,15 @@
     ITEMS.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a.inst.t - b.inst.t));
   }
 
-  function confVisible(c) {
+  const matchesQuery = (c, q) => !q || [c.title, c.description || "", c.id].some((s) => s.toLowerCase().includes(q.toLowerCase()));
+  function passesFilters(c) {
     if (!c.dirs.some((d) => state.dirs.has(d))) return false;
-    if (!state.ranks.has(c.rankCcf)) return false;
+    if (!state.ranks.has(c.rankCcf) || !state.coreRanks.has(c.rankCore)) return false;
     if (state.starOnly && !state.stars.has(c.id)) return false;
-    if (state.query) {
-      const q = state.query.toLowerCase();
-      if (!(c.title.toLowerCase().includes(q) || (c.description || "").toLowerCase().includes(q))) return false;
-    }
     return true;
   }
+  const confVisible = (c) => passesFilters(c) && matchesQuery(c, state.query);
+  const rankText = (c) => [c.rankCcf !== "N" ? `CCF-${c.rankCcf}` : "", c.rankCore !== "N" ? `CORE ${c.rankCore}` : ""].filter(Boolean).join(" · ");
   const visibleItems = () => ITEMS.filter((it) => state.kinds.has(KIND_GROUP[it.kind]) && (state.showEst || !it.ev.est) && confVisible(it.c));
 
   function whenText(it) {
@@ -206,7 +212,7 @@
     if (it.kind === "conf" && it.end > ev.date) s += ` – ${fmtDay(it.end)}`;
     if (it.kind !== "conf") {
       if (ev.time) s += ` ${ev.time}`;
-      if (ev.time && (ev.tz || it.ed.tz)) s += ` ${ev.tz || it.ed.tz}`;
+      if (ev.time && (ev.tz || it.ed.tz)) s += ` ${tzText(ev.tz || it.ed.tz)}`;
     }
     return s;
   }
@@ -220,6 +226,7 @@
     else q.set("title", "[DDL] ");
     return `${DATA.repo.replace(/\/$/, "")}/issues/new?${q}`;
   }
+  const tzText = (z) => (z === "unstated" ? t("tzUnstated") : z);
   const label = (it, short) => `${it.c.title}${short ? "" : " " + (it.ed.year || "")} ${t(it.kind + (short ? "S" : ""))}`.replace(/\s+/g, " ").trim();
 
   /* ---------- theme ---------- */
@@ -293,6 +300,10 @@
     $("rankChips").replaceChildren(...RANKS.map((r) => h("button", {
       type: "button", class: "fchip", "aria-pressed": String(state.ranks.has(r)), onclick: () => toggleChip(state.ranks, r, "ranks"),
     }, r === "N" ? t("rankOther") : r, h("span", { class: "n" }, count((c) => c.rankCcf === r)))));
+    $("coreChips").replaceChildren(...CORE_RANKS.map((r) => h("button", {
+      type: "button", class: "fchip", "aria-pressed": String(state.coreRanks.has(r)), onclick: () => toggleChip(state.coreRanks, r, "coreRanks"),
+    }, r === "N" ? t("rankOther") : r, h("span", { class: "n" }, count((c) => c.rankCore === r)))));
+    renderHits();
     const kinds = [["deadline", "kDeadline"], ["rebuttal", "kRebuttal"], ["notify", "kNotify"], ["conf", "kConf"]];
     $("kindChips").replaceChildren(...kinds.map(([k, key]) => h("button", {
       type: "button", class: "fchip", "aria-pressed": String(state.kinds.has(k)), onclick: () => toggleChip(state.kinds, k, "kinds"),
@@ -301,6 +312,24 @@
       onclick: () => { state.showEst = !state.showEst; store.set("showEst", state.showEst); render(); },
     }, t("kEst")));
     $("starOnly").setAttribute("aria-pressed", String(state.starOnly));
+  }
+
+  // Venues matching the search box, so a venue with no dates in view can still be opened.
+  function renderHits() {
+    const q = state.query;
+    $("hitsRow").hidden = !q;
+    if (!q) return;
+    const nowMs = Date.now();
+    const hits = CONFS.filter((c) => matchesQuery(c, q)).slice(0, 12);
+    $("searchHits").replaceChildren(...(hits.length ? hits.map((c) => {
+      const next = ITEMS.find((it) => it.c === c && DEADLINES.has(it.kind) && it.inst.t >= nowMs);
+      const shown = passesFilters(c) && (!next || !next.ev.est || state.showEst);
+      return h("button", {
+        type: "button", class: `hit${passesFilters(c) ? "" : " hidden-by-filter"}`, style: `--c:${colorOf(c)}`,
+        title: passesFilters(c) ? null : t("hiddenByFilter"), onclick: () => openDetail(c.id),
+      }, c.title, h("small", null, [rankText(c), next ? t("nextDate", whenText(next)) : t("noNext")].filter(Boolean).join(" · ")),
+        shown ? null : h("small", null, "⊘"));
+    }) : [h("span", { class: "empty" }, t("noHits"))]));
   }
 
   function chipFor(it, ds, col) {
@@ -316,7 +345,7 @@
     }
     return h("button", {
       type: "button", class: `chip k-${it.kind}${it.ev.est ? " est" : ""}${it.inst.t < Date.now() ? " past" : ""}`, style: `--c:${colorOf(c)}`, title, onclick: open,
-    }, (it.ev.est ? "~" : "") + label(it, true), it.ev.time ? h("span", { class: "t" }, `${it.ev.time} ${it.ev.tz || it.ed.tz || ""}`.trim()) : null);
+    }, (it.ev.est ? "~" : "") + label(it, true), it.ev.time ? h("span", { class: "t" }, `${it.ev.time} ${tzText(it.ev.tz || it.ed.tz || "")}`.trim()) : null);
   }
 
   const KIND_RANK = { abstract: 0, paper: 0, rebuttal: 1, notify: 1, conf: 2 };
@@ -391,7 +420,7 @@
         h("span", { class: `bar k-${it.kind}` }),
         h("span", { style: "min-width:0" },
           h("span", { class: "nm" }, `${it.c.title} ${it.ed.year || ""}`.trim()),
-          h("span", { class: "rk" }, it.c.rankCcf === "N" ? "" : `CCF-${it.c.rankCcf}`),
+          h("span", { class: "rk" }, rankText(it.c)),
           h("span", { class: "kd" }, t(it.kind)),
           h("span", { class: "wh" }, whenText(it)),
           h("span", { class: "lc" }, local)),
@@ -420,7 +449,7 @@
         h("span", { class: `bar k-${it.kind}${it.ev.est ? " est" : ""}` }),
         h("span", { class: "tx" },
           h("b", null, label(it)),
-          h("small", null, [whenText(it), it.c.rankCcf !== "N" ? `CCF-${it.c.rankCcf}` : "", noteText(it)].filter(Boolean).join(" · "))),
+          h("small", null, [whenText(it), rankText(it.c), noteText(it)].filter(Boolean).join(" · "))),
         past ? h("span", { class: "pill" }, isConf ? t("ended") : t("passed"))
           : it.ev.est ? h("span", { class: "pill est" }, t("est"))
           : l ? h("span", { class: `pill${l.days < 7 ? " soon" : ""}` }, leftText(it.inst.t)) : h("span")));
@@ -493,7 +522,7 @@
       if (ed.link && /^https?:\/\//i.test(ed.link)) fact(t("website"), h("a", { href: ed.link, target: "_blank", rel: "noopener" }, ed.link));
       fact(t("place"), ed.place);
       fact(t("dates"), ed.date);
-      fact(t("tz"), ed.tz);
+      fact(t("tz"), ed.tz && tzText(ed.tz));
       const rows = ITEMS.filter((it) => it.c === c && it.ed === ed && it.kind !== "conf" && (state.showEst || !it.ev.est)).map((it) => {
         const past = it.inst.t < nowMs;
         return h("tr", { class: past ? "past" : null },
