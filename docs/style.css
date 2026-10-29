@@ -4,7 +4,7 @@
 :root {
   --bg: #F2F4F8; --surface: #FFFFFF; --sunk: #EBEEF4; --ink: #141A26; --muted: #5B6476; --line: #D9DEE8;
   --accent: #2747C6; --accent-ink: #FFFFFF; --danger: #B3302A; --chip-ink: #FFFFFF;
-  --d0: #2F68D8; --d1: #C4531A; --d2: #2B7A43; --d3: #8C39AC; --d4: #0A7C8C; --dx: #4E5A72;
+  --d0: #2F68D8; --d1: #C4531A; --d2: #2B7A43; --d3: #8C39AC; --d4: #0A7C8C; --d5: #B8336A; --dx: #4E5A72;
   --font-display: "Bricolage Grotesque", "Noto Sans SC", system-ui, sans-serif;
   --font-body: "Noto Sans SC", system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-data: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -16,7 +16,7 @@
   :root:not([data-theme="light"]) {
     --bg: #0F131B; --surface: #171C27; --sunk: #131823; --ink: #E6EAF2; --muted: #98A1B4; --line: #2A3141;
     --accent: #8099FF; --accent-ink: #0D1120; --danger: #F07468; --chip-ink: #0D1018;
-    --d0: #6F9BF5; --d1: #F08C55; --d2: #5DBB78; --d3: #C27BE0; --d4: #3FC0D2; --dx: #9AA6BD;
+    --d0: #6F9BF5; --d1: #F08C55; --d2: #5DBB78; --d3: #C27BE0; --d4: #3FC0D2; --d5: #F07FAE; --dx: #9AA6BD;
     --star: #F2C14E;
     color-scheme: dark;
   }
@@ -24,7 +24,7 @@
 :root[data-theme="dark"] {
   --bg: #0F131B; --surface: #171C27; --sunk: #131823; --ink: #E6EAF2; --muted: #98A1B4; --line: #2A3141;
   --accent: #8099FF; --accent-ink: #0D1120; --danger: #F07468; --chip-ink: #0D1018;
-  --d0: #6F9BF5; --d1: #F08C55; --d2: #5DBB78; --d3: #C27BE0; --d4: #3FC0D2; --dx: #9AA6BD;
+  --d0: #6F9BF5; --d1: #F08C55; --d2: #5DBB78; --d3: #C27BE0; --d4: #3FC0D2; --d5: #F07FAE; --dx: #9AA6BD;
   --star: #F2C14E;
   color-scheme: dark;
 }
@@ -49,7 +49,9 @@ a { color: var(--accent) }
 .top .sub { margin: 6px 0 0; color: var(--muted); max-width: 70ch }
 .btn { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 6px 13px; font-weight: 500 }
 .btn:hover { border-color: var(--muted) }
-.topbtns { display: flex; gap: 8px }
+.topbtns { display: flex; flex-wrap: wrap; gap: 8px }
+a.btn { text-decoration: none; color: var(--ink) }
+.fixlink { margin: 8px 0 0; font-size: 13px }
 .iconbtn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); font-size: 18px; line-height: 1; display: grid; place-items: center; flex: none }
 .iconbtn:hover { border-color: var(--muted) }
 

@@ -6,35 +6,80 @@ on:
   workflow_dispatch:           # "Run workflow" button on the Actions tab
   push:
     branches: [main]
+  issues:                      # the "Add or correct a deadline" form
+    types: [opened, edited, labeled]
 
 permissions:
   contents: write
   pages: write
   id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  issues: write
 
 jobs:
   build:
+    # Issue events run only for the deadline form, and only when a collaborator wrote it
+    # or a maintainer added the "approved" label. Other issues are left alone.
+    if: >-
+      github.event_name != 'issues' || (
+        (contains(github.event.issue.labels.*.name, 'deadline') || startsWith(github.event.issue.title, '[DDL]')) && (
+          (github.event.action != 'labeled' &&
+           contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)) ||
+          (github.event.action == 'labeled' && github.event.label.name == 'approved')))
     runs-on: ubuntu-latest
+    # Job-level, so skipped issue events do not take a place in the queue. GitHub keeps only
+    # one waiting run per group; an issue run replaced that way reruns when the issue is edited.
+    concurrency:
+      group: castlddl-build
+      cancel-in-progress: false
+    outputs:
+      reply: ${{ steps.issue.outputs.reply }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install pyyaml==6.0.2
+      - name: Create the issue labels
+        if: github.event_name != 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create deadline --repo "$GITHUB_REPOSITORY" --force --color 2747C6 \
+            --description "Add or correct a deadline (issue form)" || true
+          gh label create approved --repo "$GITHUB_REPOSITORY" --force --color 2B7A43 \
+            --description "A maintainer checked this deadline form; apply it" || true
+      - name: Apply the issue form to manual.yml
+        id: issue
+        if: github.event_name == 'issues'
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_USER: ${{ github.event.issue.user.login }}
+        run: |
+          python scripts/apply_issue.py --reply reply.md
+          { echo "reply<<REPLY_EOF"; cat reply.md; echo "REPLY_EOF"; } >> "$GITHUB_OUTPUT"
+      - name: Report form errors on the issue
+        if: failure() && steps.issue.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: test -s reply.md && gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file reply.md
       - run: python scripts/build.py
       - name: Commit the new data
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data docs/ics
+          git add manual.yml docs/data docs/ics
           if git diff --cached --quiet; then
             echo "Data did not change."
           else
-            git commit -m "Update deadlines from ccfddl"
+            if [ -n "$ISSUE_NUMBER" ]; then msg="Add dates from issue #$ISSUE_NUMBER"; else msg="Update deadlines from ccfddl"; fi
+            git commit -m "$msg"
+            git pull --rebase origin main
             git push
           fi
       - uses: actions/upload-pages-artifact@v3
@@ -44,9 +89,23 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Reply on the issue and close it
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPLY: ${{ needs.build.outputs.reply }}
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          printf '%s\n\n网站已更新 / The site is updated: %s\n\n要修改，直接编辑这个 issue。To change the entry, edit this issue.\n' "$REPLY" "$PAGE_URL" > reply.md
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file reply.md
+          gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" || true

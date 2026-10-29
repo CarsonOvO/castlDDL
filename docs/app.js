@@ -24,7 +24,7 @@
   const I18N = {
     zh: {
       htmlLang: "zh-CN", locale: "zh-CN", langBtn: "English",
-      subtitle: "实验室会议截稿日历。数据来自 ccfddl，按组内五个研究方向整理。截稿时间自动换算成你的本地时间。",
+      subtitle: "实验室会议截稿日历。数据来自 ccfddl 和组内录入，按组内的研究方向整理。截稿时间自动换算成你的本地时间。",
       directions: "研究方向", rank: "CCF 等级", show: "显示", find: "查找",
       starredOnly: "只看关注", search: "搜索会议，例如 SIGMOD", rankOther: "无等级",
       kDeadline: "摘要与论文截止", kRebuttal: "Rebuttal", kNotify: "录用通知", kConf: "会期", kEst: "预计日期",
@@ -49,12 +49,14 @@
       loading: "正在加载数据…", loadError: "数据加载失败。请刷新页面。",
       source: (sha) => `数据来自 ccfddl（MIT 许可）${sha ? `，提交 ${sha}` : ""}。`,
       updated: (s) => `最后更新：${s}。每月 1 日和 15 日自动更新。`,
-      howToAdd: "要添加会议或调整方向分类，请修改仓库里的 config.yml 或 extra.yml。",
+      howToAdd: "看到 ccfddl 还没有的日期？点“补充日期”提交（要有 GitHub 账号）。组内成员提交后约 2 分钟自动更新。调整方向分类请改仓库里的 config.yml。",
+      add: "补充日期", addTitle: "在 GitHub 上提交 ccfddl 还没有的日期", fixEdition: (n) => `补充或更正 ${n} 的日期`,
+      lab: (u) => (u ? `组内录入（${u}）` : "组内录入"), labSource: "来源", alt: (d) => `ccfddl 写的是 ${d}`,
       repo: "GitHub 仓库", venues: (n) => `${n} 个会议`,
     },
     en: {
       htmlLang: "en", locale: "en-US", langBtn: "中文",
-      subtitle: "Conference deadlines for the lab's five research directions. Data from ccfddl. Deadlines are shown in your local time.",
+      subtitle: "Conference deadlines for the lab's research directions. Data from ccfddl and from lab members. Deadlines are shown in your local time.",
       directions: "Directions", rank: "CCF rank", show: "Show", find: "Find",
       starredOnly: "Starred only", search: "Search, e.g. SIGMOD", rankOther: "Unranked",
       kDeadline: "Abstract & paper deadlines", kRebuttal: "Rebuttal", kNotify: "Notification", kConf: "Conference", kEst: "Estimated dates",
@@ -79,7 +81,9 @@
       loading: "Loading…", loadError: "Could not load the data. Refresh the page.",
       source: (sha) => `Data from ccfddl (MIT license)${sha ? `, commit ${sha}` : ""}.`,
       updated: (s) => `Last update: ${s}. Updates run on the 1st and 15th of each month.`,
-      howToAdd: "To add a venue or change the direction lists, edit config.yml or extra.yml in the repository.",
+      howToAdd: "Know a date that ccfddl does not have yet? Use \"Add a date\" (needs a GitHub account). Entries from lab members go live in about two minutes. To change the direction lists, edit config.yml in the repository.",
+      add: "Add a date", addTitle: "Submit a date that ccfddl does not have yet, on GitHub", fixEdition: (n) => `Add or correct dates for ${n}`,
+      lab: (u) => (u ? `entered by the lab (${u})` : "entered by the lab"), labSource: "source", alt: (d) => `ccfddl says ${d}`,
       repo: "GitHub repository", venues: (n) => `${n} venues`,
     },
   };
@@ -144,7 +148,9 @@
     loadError: false,
   };
 
-  const colorOf = (c) => (c.color >= 0 ? `var(--d${c.color % 5})` : "var(--dx)");
+  const NCOLORS = 6; // --d0 .. --d5 in style.css
+  const dirColor = (i) => `var(--d${i % NCOLORS})`;
+  const colorOf = (c) => (c.color >= 0 ? dirColor(c.color) : "var(--dx)");
   const dirName = (d, short) => (lang === "zh" ? (short ? d.short_zh : d.name_zh) : (short ? d.short : d.name)) || d.name;
 
   function instantOf(ev, ed) {
@@ -158,7 +164,10 @@
     DIRS = json.directions || [];
     DIRS.forEach((d, i) => { dirIdx[d.id] = i; });
     const stored = store.get("dirs", null);
+    const seen = new Set(store.get("dirsSeen", ["db", "cloud", "security", "storage", "hpc"]));
     state.dirs = new Set(Array.isArray(stored) ? stored.filter((id) => id in dirIdx) : DIRS.map((d) => d.id));
+    DIRS.forEach((d) => { if (!seen.has(d.id)) state.dirs.add(d.id); });
+    store.set("dirsSeen", DIRS.map((d) => d.id));
     CONFS = (json.confs || []).map((c) => ({
       ...c,
       dirs: c.dirs || [],
@@ -197,11 +206,20 @@
     if (it.kind === "conf" && it.end > ev.date) s += ` – ${fmtDay(it.end)}`;
     if (it.kind !== "conf") {
       if (ev.time) s += ` ${ev.time}`;
-      if (ev.time && it.ed.tz) s += ` ${it.ed.tz}`;
+      if (ev.time && (ev.tz || it.ed.tz)) s += ` ${ev.tz || it.ed.tz}`;
     }
     return s;
   }
-  const noteText = (it) => [it.ev.est ? t("estNote", it.ev.est) : "", it.ev.note || ""].filter(Boolean).join(" · ");
+  const noteText = (it) => [it.ev.est ? t("estNote", it.ev.est) : "", it.ev.src === "lab" ? t("lab", it.ev.by) : "",
+    it.ev.alt ? t("alt", it.ev.alt) : "", it.ev.note || ""].filter(Boolean).join(" · ");
+  const safeUrl = (u) => (typeof u === "string" && /^https?:\/\//i.test(u) ? u : null);
+  function formUrl(c, year) {
+    if (!safeUrl(DATA && DATA.repo)) return null;
+    const q = new URLSearchParams({ template: "deadline.yml" });
+    if (c) { q.set("title", `[DDL] ${c.title} ${year || ""}`.trim()); q.set("venue", c.id); if (year) q.set("year", String(year)); }
+    else q.set("title", "[DDL] ");
+    return `${DATA.repo.replace(/\/$/, "")}/issues/new?${q}`;
+  }
   const label = (it, short) => `${it.c.title}${short ? "" : " " + (it.ed.year || "")} ${t(it.kind + (short ? "S" : ""))}`.replace(/\s+/g, " ").trim();
 
   /* ---------- theme ---------- */
@@ -219,6 +237,9 @@
     document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
     $("langBtn").textContent = t("langBtn");
     applyTheme();
+    const add = $("addBtn"), url = formUrl(null);
+    add.hidden = !url;
+    if (url) { add.href = url; add.textContent = `+ ${t("add")}`; add.title = t("addTitle"); }
     $("search").placeholder = t("search");
     $("search").setAttribute("aria-label", t("search"));
     $("prevBtn").setAttribute("aria-label", t("prev"));
@@ -267,7 +288,7 @@
     const count = (pred) => CONFS.filter(pred).length;
     $("dirChips").replaceChildren(...DIRS.map((d, i) => h("button", {
       type: "button", class: "fchip", "aria-pressed": String(state.dirs.has(d.id)), title: dirName(d, false),
-      style: `--c:var(--d${i % 5})`, onclick: () => toggleChip(state.dirs, d.id, "dirs"),
+      style: `--c:${dirColor(i)}`, onclick: () => toggleChip(state.dirs, d.id, "dirs"),
     }, h("span", { class: "sw" }), dirName(d, true), h("span", { class: "n" }, count((c) => c.dirs.includes(d.id))))));
     $("rankChips").replaceChildren(...RANKS.map((r) => h("button", {
       type: "button", class: "fchip", "aria-pressed": String(state.ranks.has(r)), onclick: () => toggleChip(state.ranks, r, "ranks"),
@@ -295,7 +316,7 @@
     }
     return h("button", {
       type: "button", class: `chip k-${it.kind}${it.ev.est ? " est" : ""}${it.inst.t < Date.now() ? " past" : ""}`, style: `--c:${colorOf(c)}`, title, onclick: open,
-    }, (it.ev.est ? "~" : "") + label(it, true), it.ev.time ? h("span", { class: "t" }, `${it.ev.time} ${it.ed.tz || ""}`.trim()) : null);
+    }, (it.ev.est ? "~" : "") + label(it, true), it.ev.time ? h("span", { class: "t" }, `${it.ev.time} ${it.ev.tz || it.ed.tz || ""}`.trim()) : null);
   }
 
   const KIND_RANK = { abstract: 0, paper: 0, rebuttal: 1, notify: 1, conf: 2 };
@@ -420,7 +441,7 @@
         if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fallback);
         else fallback();
       });
-      ul.append(h("li", { class: "feed", style: d ? `--c:var(--d${dirIdx[d.id] % 5})` : null },
+      ul.append(h("li", { class: "feed", style: d ? `--c:${dirColor(dirIdx[d.id])}` : null },
         h("span", { class: "sw", style: d ? null : "background:var(--ink)" }),
         h("span", { class: "nm", title: d ? dirName(d, false) : t("allDirs") }, d ? dirName(d, true) : t("allDirs")),
         h("a", { class: "btn", href: url.replace(/^https?:/, "webcal:") }, t("open")),
@@ -460,7 +481,7 @@
     const badges = h("div", { class: "badges" }, starBtn,
       c.rankCcf !== "N" ? h("span", { class: "badge" }, `CCF-${c.rankCcf}`) : null,
       c.rank && c.rank.core ? h("span", { class: "badge" }, `CORE ${c.rank.core}`) : null,
-      c.dirs.map((d) => (d in dirIdx ? h("span", { class: "badge dir", style: `--c:var(--d${dirIdx[d] % 5})` }, dirName(DIRS[dirIdx[d]], true)) : null)),
+      c.dirs.map((d) => (d in dirIdx ? h("span", { class: "badge dir", style: `--c:${dirColor(dirIdx[d])}` }, dirName(DIRS[dirIdx[d]], true)) : null)),
       c.dblp ? h("a", { class: "badge", href: `https://dblp.org/db/conf/${encodeURIComponent(c.dblp)}/`, target: "_blank", rel: "noopener" }, t("dblp")) : null);
     body.append(badges);
 
@@ -477,7 +498,8 @@
         const past = it.inst.t < nowMs;
         return h("tr", { class: past ? "past" : null },
           h("td", null, h("span", { class: `kindtag k-${it.kind}${it.ev.est ? " est" : ""}`, style: `--c:${colorOf(c)}` }), t(it.kind),
-            noteText(it) ? h("span", { class: "note" }, noteText(it)) : null),
+            noteText(it) ? h("span", { class: "note" }, noteText(it),
+              safeUrl(it.ev.ref) ? [" · ", h("a", { href: it.ev.ref, target: "_blank", rel: "noopener" }, t("labSource"))] : null) : null),
           h("td", { class: "mono" }, whenText(it)),
           h("td", { class: "mono" }, it.inst.zoned ? fmtLocal(it.inst.t) : t("noTime")),
           h("td", null, it.ev.est ? `${t("est")} · ${leftText(it.inst.t)}` : leftText(it.inst.t)));
@@ -492,6 +514,10 @@
       }
       const confItem = ITEMS.find((it) => it.c === c && it.ed === ed && it.kind === "conf");
       if (confItem && confItem.end < today) sec.append(h("p", { class: "note" }, `${t("conf")}: ${t("ended")}`));
+      const fix = formUrl(c, ed.year);
+      if (fix && !(confItem && confItem.end < today)) {
+        sec.append(h("p", { class: "fixlink" }, h("a", { href: fix, target: "_blank", rel: "noopener" }, `+ ${t("fixEdition", `${c.title} ${ed.year || ""}`.trim())}`)));
+      }
       body.append(sec);
     }
     if (!refresh) {

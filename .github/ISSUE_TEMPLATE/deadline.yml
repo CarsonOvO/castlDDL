@@ -1,0 +1,113 @@
+name: 补充或更正截止日期 / Add or correct a deadline
+description: ccfddl 还没更新、但官网已经公布的日期。提交后网站自动更新。
+title: "[DDL] "
+labels: [deadline]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        填写官网上公布的日期。组内成员（仓库协作者）提交后，网站大约 2 分钟后自动更新，这个 issue 会自动关闭。其他人提交的，要等管理员加上 `approved` 标签后才更新。
+        如果这一届已经有同类日期（例如 ccfddl 里的论文截止），你填的日期会替换前后 45 天内的同类日期。要改已经提交的内容，直接编辑这个 issue。
+
+        Enter dates from the official call for papers. Entries from repository collaborators go live in about two minutes and the issue closes. Other entries wait until a maintainer adds the `approved` label. A date you enter replaces dates of the same type within 45 days in that edition. To change an entry, edit this issue.
+  - type: input
+    id: venue
+    attributes:
+      label: 会议 Venue
+      description: 网站上显示的名字或 ID，例如 SIGKDD 或 DB/sigkdd。从网站的会议详情打开时已经填好。新会议写简称。
+      placeholder: SIGKDD
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: 届 Year
+      description: 会议举办的年份。例如 KDD 2027（2027 年 8 月开）写 2027。
+      placeholder: "2027"
+    validations:
+      required: true
+  - type: input
+    id: round
+    attributes:
+      label: 轮次 Round
+      description: 例如 Cycle 2、Fall、Research track。只有一轮可以不填。
+  - type: input
+    id: abstract
+    attributes:
+      label: 摘要截止 Abstract deadline
+      description: 格式 YYYY-MM-DD HH:MM，例如 2027-02-01 23:59。没有时刻就只写日期（按 23:59 算）。
+      placeholder: 2027-02-01 23:59
+  - type: input
+    id: paper
+    attributes:
+      label: 论文截止 Paper deadline
+      description: 格式同上。
+      placeholder: 2027-02-08 23:59
+  - type: input
+    id: rebuttal
+    attributes:
+      label: Rebuttal 截止 Rebuttal deadline
+      description: 格式同上。
+  - type: input
+    id: notify
+    attributes:
+      label: 录用通知 Notification
+      description: 格式同上。
+  - type: dropdown
+    id: timezone
+    attributes:
+      label: 时区 Time zone
+      description: 上面所有日期用的时区。PT 和 ET 会自动处理夏令时。
+      options:
+        - AoE (UTC-12)
+        - UTC
+        - PT (US Pacific)
+        - ET (US Eastern)
+        - CET (Central Europe)
+        - UTC+8 (China)
+        - UTC+9 (Japan, Korea)
+        - UTC+1
+        - UTC+2
+        - UTC-5
+        - UTC-7
+        - UTC-8
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: dates
+    attributes:
+      label: 会期 Conference dates
+      description: 用英文月份，例如 August 1-5, 2027。
+      placeholder: August 1-5, 2027
+  - type: input
+    id: place
+    attributes:
+      label: 地点 Place
+      placeholder: San Jose, California, USA
+  - type: input
+    id: link
+    attributes:
+      label: 来源链接 Source link
+      description: 你看到这些日期的官方网页（征稿通知）。
+      placeholder: https://kdd2027.kdd.org/research-track-call-for-papers/
+    validations:
+      required: true
+  - type: checkboxes
+    id: dirs
+    attributes:
+      label: 方向 Directions
+      description: 只有网站上还没有的会议才需要选。
+      options:
+        - label: db — 数据库与大数据 Databases & big data
+        - label: cloud — 云与分布式 Cloud & distributed
+        - label: security — 安全与隐私 Security & privacy
+        - label: storage — 存储与并行 I/O Storage & parallel I/O
+        - label: hpc — 高性能与计算科学 HPC & computational science
+        - label: ai — AI 与机器学习 AI & ML
+  - type: input
+    id: fullname
+    attributes:
+      label: 全称 Full name
+      description: 只有新会议需要。
+      placeholder: AGU Fall Meeting

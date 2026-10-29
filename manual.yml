@@ -1,0 +1,26 @@
+# Dates entered by the lab, for news that ccfddl does not have yet.
+#
+# Most entries come from the "Add or correct a deadline" issue form (scripts/apply_issue.py
+# writes them, one entry per issue). You can also edit this file by hand.
+#
+# A date here takes priority over ccfddl: it replaces ccfddl's dates of the same type within
+# 45 days in the same edition. Fields:
+#   venue     ccfddl ID (DB/sigkdd) or LAB/<name> for a venue that ccfddl does not list
+#   year      conference year
+#   round     optional label, shown next to the date
+#   timezone  AoE, UTC, PT, ET, CET or UTC+N / UTC-N
+#   abstract, paper, rebuttal, notify   'YYYY-MM-DD HH:MM' or 'YYYY-MM-DD'
+#   dates     conference dates, for example 'August 1-5, 2027'
+#   place, link (source page), by (who entered it), issue (issue number)
+#   title, name, dirs   only for LAB/ venues: short name, full name, direction IDs
+#
+# Example:
+# - venue: DB/sigkdd
+#   year: 2027
+#   round: Cycle 2
+#   timezone: AoE
+#   abstract: '2027-02-01 23:59'
+#   paper: '2027-02-08 23:59'
+#   link: https://kdd2027.kdd.org/research-track-call-for-papers/
+
+[]

@@ -117,3 +117,40 @@ directions:
       - MX/apbc
       - MX/isbra
       - MX/sigspatial
+
+  # Added 2026-10-29 for ML systems work (KV cache, LLM serving). ML, NLP, general AI and
+  # the main vision venues from ccfddl's AI category; robotics, evolutionary computing,
+  # planning and biometrics venues are left out. Add more from conference/AI if needed.
+  - id: ai
+    short: AI & ML
+    short_zh: AI 与机器学习
+    name: Artificial intelligence, machine learning and NLP
+    name_zh: 人工智能、机器学习与自然语言处理
+    venues:
+      - AI/nips
+      - AI/icml
+      - AI/iclr
+      - AI/aaai
+      - AI/ijcai
+      - AI/acl
+      - AI/emnlp
+      - AI/naacl
+      - AI/eacl
+      - AI/coling
+      - AI/colm
+      - AI/conll
+      - AI/ijcnlp
+      - AI/nlpcc
+      - AI/cvpr
+      - AI/iccv
+      - AI/eccv
+      - AI/colt
+      - AI/uai
+      - AI/aistats
+      - AI/alt
+      - AI/acml
+      - AI/ecai
+      - AI/cpal
+      - AI/log
+      - MX/mlsys
+      - DB/sigkdd

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Build the castlDDL site data from ccfddl.
 
-Reads config.yml and extra.yml, downloads the ccfddl conference files, and
-writes docs/data/deadlines.json plus one iCalendar feed per direction under
-docs/ics/.
+Reads config.yml, extra.yml and manual.yml, downloads the ccfddl conference
+files, and writes docs/data/deadlines.json plus one iCalendar feed per
+direction under docs/ics/.
 
 Usage:
     python scripts/build.py                 # download ccfddl from GitHub
@@ -38,6 +38,7 @@ TIMELINE_KEYS = (("abstract_deadline", "abstract"), ("deadline", "paper"),
                  ("rebuttal_deadline", "rebuttal"), ("decision_deadline", "notify"))
 ICS_KINDS = {"abstract": "abstract deadline", "paper": "paper deadline"}
 ESTIMATE_WINDOW = 45  # days; rounds of quarterly venues (SIGMOD) are ~90 days apart
+MANUAL_KINDS = ("abstract", "paper", "rebuttal", "notify")
 
 
 def fetch(url, timeout=60):
@@ -199,21 +200,22 @@ def add_estimates(editions, now):
     """Project each edition's abstract and paper deadlines one year ahead, for rounds the
     next call has not announced yet. ccfddl lists only announced dates, so the next round
     of most venues is missing for months (KDD 2027 lists its July round, not February).
-    An estimate is kept only if it falls within the next 365 days and no announced deadline
-    of the same kind lies within ESTIMATE_WINDOW days of it. Estimates carry `est` = the base year."""
+    An estimate is kept only if it falls within the next 365 days and no announced abstract
+    or paper deadline lies within ESTIMATE_WINDOW days of it. Estimates carry `est` = the base year."""
     announced = [(ev["kind"], dt.date.fromisoformat(ev["date"]))
                  for ed in editions for ev in ed["events"] if ev["kind"] in ICS_KINDS and not ev.get("est")]
     by_year = {ed["year"]: ed for ed in editions}
     for base in sorted(editions, key=lambda e: e["year"]):
         if base.get("est"):
             continue
-        tz = tz_for(base["tz"])
         for ev in base["events"]:
             if ev["kind"] not in ICS_KINDS or ev.get("est"):
                 continue
+            tz = tz_for(ev.get("tz") or base["tz"])
             date = shift_year(ev["date"], 1)
             day = dt.date.fromisoformat(date)
-            if any(k == ev["kind"] and abs((day - a).days) <= ESTIMATE_WINDOW for k, a in announced):
+            # either type counts: a venue that now lists only a paper deadline needs no abstract estimate
+            if any(abs((day - a).days) <= ESTIMATE_WINDOW for _, a in announced):
                 continue
             new = parse_deadline(f"{date} {ev['time']}" if ev.get("time") else date, tz)
             when = new.get("utc") or f"{date}T23:59:59Z"
@@ -221,6 +223,8 @@ def add_estimates(editions, now):
             if not now <= when <= now + dt.timedelta(days=365):
                 continue
             new.update(kind=ev["kind"], round=ev["round"], est=base["year"])
+            if ev.get("tz"):
+                new["tz"] = ev["tz"]
             if ev.get("note"):
                 new["note"] = ev["note"]
             target = by_year.get(base["year"] + 1)
@@ -234,6 +238,49 @@ def add_estimates(editions, now):
     return editions
 
 
+def apply_manual(editions, entries):
+    """Merge the lab's manual.yml entries for one venue into its editions. A manual date
+    replaces ccfddl's dates of the same type within ESTIMATE_WINDOW days in that edition;
+    a replaced date that differs is kept in `alt` so the site can show the disagreement."""
+    day = lambda e: dt.date.fromisoformat(e["date"])
+    for i, m in enumerate(entries):
+        year, label = int(m["year"]), tz_label(m.get("timezone"))
+        ed = next((e for e in editions if e["year"] == year), None)
+        if ed is None:
+            ed = {"year": year, "link": None, "place": None, "date": None, "tz": label, "events": []}
+            editions.append(ed)
+        new = []
+        for kind in MANUAL_KINDS:
+            if not m.get(kind):
+                continue
+            ev = parse_deadline(m[kind], tz_for(m.get("timezone")))
+            if ev is None:
+                print(f"warning: manual.yml {m['venue']} {year} {kind}: bad date {m[kind]!r}", file=sys.stderr)
+                continue
+            ev.update(kind=kind, round=f"lab{m.get('issue', i)}", src="lab", tz=label)
+            for key, field in (("round", "note"), ("link", "ref"), ("by", "by"), ("issue", "issue")):
+                if m.get(key):
+                    ev[field] = m[key]
+            new.append(ev)
+        kept = []
+        for e in ed["events"]:
+            hit = [n for n in new if n["kind"] == e["kind"] and abs((day(n) - day(e)).days) <= ESTIMATE_WINDOW]
+            if not hit:
+                kept.append(e)
+            elif e.get("src") != "lab" and e["date"] != hit[0]["date"]:
+                hit[0]["alt"] = e["date"]
+        ed["events"] = kept + new
+        span = parse_conf_dates(m.get("dates"))
+        if span:
+            ed["events"] = [e for e in ed["events"] if e["kind"] != "conf"] + [{"kind": "conf", "date": span[0], "end": span[1]}]
+            ed["date"] = str(m["dates"])
+        if m.get("place"):
+            ed["place"] = str(m["place"])
+        if m.get("link") and not ed.get("link"):
+            ed["link"] = m["link"]
+    return editions
+
+
 def clean(obj):
     if isinstance(obj, dict):
         return {k: clean(v) for k, v in obj.items() if v not in (None, "", [], {})}
@@ -242,7 +289,29 @@ def clean(obj):
     return obj
 
 
-def select_venues(cfg, ccf, extra):
+def resolve_venue(name, known):
+    """Match a name ('SIGKDD', 'sigkdd') or ID ('DB/sigkdd') against known {id: title}.
+    Returns (id, []) for one match, or (None, candidate ids) otherwise."""
+    s = str(name or "").strip()
+    if s in known:
+        return s, []
+    low = s.lower()
+    hits = [i for i, title in known.items()
+            if low in (i.lower(), str(title).lower(), i.split("/")[-1].lower())]
+    if len(hits) == 1:
+        return hits[0], []
+    if not hits and len(low) >= 3:
+        hits = [i for i, title in known.items() if low in str(title).lower() or low in i.lower()]
+    return None, sorted(hits)
+
+
+def manual_venue(m):
+    """A LAB/ venue (one that ccfddl does not list) as a ccfddl-style entry."""
+    return {"title": m.get("title") or m["venue"].split("/", 1)[-1], "description": m.get("name"),
+            "rank": {"ccf": "N"}, "confs": []}
+
+
+def select_venues(cfg, ccf, extra, manual=()):
     """Return {venue_id: (entry, [direction ids])} in config order."""
     chosen = {}
     for d in cfg["directions"]:
@@ -262,6 +331,14 @@ def select_venues(cfg, ccf, extra):
             print(f"warning: extra.yml entry {e.get('id') or e.get('title')} needs id and dirs", file=sys.stderr)
             continue
         chosen[e["id"]] = (e, dirs)
+    for m in manual:  # a manual entry can add a venue that the direction lists do not cover
+        vid, dirs = m.get("venue"), [x for x in m.get("dirs") or [] if x in known]
+        if vid in chosen or not dirs:
+            continue
+        if vid in ccf:
+            chosen[vid] = (ccf[vid], dirs)
+        elif str(vid).startswith("LAB/"):
+            chosen[vid] = (manual_venue(m), dirs)
     return chosen
 
 
@@ -299,9 +376,11 @@ def write_ics(path, name, confs, now):
                 ts = when.strftime("%Y%m%dT%H%M%SZ")
                 title = f"{c['title']} {ed.get('year') or ''}".strip()
                 summary = f"{title} {ICS_KINDS[ev['kind']]}" + (f" ({ev['note']})" if ev.get("note") else "")
-                published = f"{ev['date']} {ev.get('time', '')} {ed.get('tz', '')}".replace("  ", " ").strip()
+                published = f"{ev['date']} {ev.get('time', '')} {ev.get('tz') or ed.get('tz', '')}".replace("  ", " ").strip()
                 desc = [c.get("description") or "", f"CCF {c.get('rank', {}).get('ccf', 'N')}",
                         f"Published deadline: {published}"]
+                if ev.get("src") == "lab":
+                    desc.append(f"Entered by the lab{' (' + ev['by'] + ')' if ev.get('by') else ''}: {ev.get('ref', '')}")
                 if ed.get("link"):
                     desc.append(ed["link"])
                 uid = f"{c['id'].replace('/', '-')}-{ed.get('year')}-{ev['kind']}-{ev.get('round', 0)}"
@@ -320,6 +399,17 @@ def write_ics(path, name, confs, now):
     return count
 
 
+def load_manual():
+    entries = yaml.safe_load((ROOT / "manual.yml").read_text(encoding="utf-8")) or []
+    ok = []
+    for m in entries:
+        if isinstance(m, dict) and m.get("venue") and str(m.get("year", "")).isdigit():
+            ok.append(m)
+        else:
+            print(f"warning: manual.yml entry needs venue and year: {m}", file=sys.stderr)
+    return ok
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--ccfddl", help="local ccf-deadlines checkout instead of downloading")
@@ -327,6 +417,7 @@ def main():
 
     cfg = yaml.safe_load((ROOT / "config.yml").read_text(encoding="utf-8"))
     extra = yaml.safe_load((ROOT / "extra.yml").read_text(encoding="utf-8")) or []
+    manual = load_manual()
     now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
     min_year = now.year - int(cfg.get("years_back", 1))
 
@@ -335,9 +426,14 @@ def main():
         sys.exit(f"error: only {len(ccf)} venues read from ccfddl; refusing to publish a partial site")
 
     confs = []
-    for vid, (entry, dirs) in select_venues(cfg, ccf, extra).items():
+    chosen = select_venues(cfg, ccf, extra, manual)
+    for m in manual:
+        if m.get("venue") not in chosen:
+            print(f"warning: manual.yml venue {m.get('venue')} is not on the site; give it dirs", file=sys.stderr)
+    for vid, (entry, dirs) in chosen.items():
         editions = [build_edition(c) for c in entry.get("confs") or []
                     if isinstance(c.get("year"), int) and c["year"] >= min_year]
+        apply_manual(editions, [m for m in manual if m.get("venue") == vid and int(m["year"]) >= min_year])
         editions = [e for e in editions if e["events"] or e["date"]]
         if not editions:
             continue
