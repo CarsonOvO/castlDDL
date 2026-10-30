@@ -36,3 +36,17 @@
   link: https://middleware-conf.github.io/2027/call-for-papers/
   by: CarsonOvO
   issue: 1
+- venue: LAB/icwm
+  title: ICWM
+  dirs:
+  - ai
+  name: International Conference on World Models
+  year: 2027
+  timezone: AoE
+  paper: '2026-11-30'
+  rebuttal: '2027-01-18'
+  notify: '2027-02-08'
+  place: San Francisco Bay Area
+  link: https://icwm.cc/
+  by: CarsonOvO
+  issue: 2
