@@ -8,37 +8,27 @@ X-PUBLISHED-TTL:PT12H
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
 UID:DS-ics-2027-abstract-0@castlddl
-DTSTAMP:20261101T172938Z
+DTSTAMP:20261115T182142Z
 DTSTART:20261202T115959Z
 DTEND:20261202T115959Z
 SUMMARY:ICS 2027 abstract deadline
 DESCRIPTION:ACM International Conference on Supercomputing\nCCF B\nPublishe
- d deadline: 2026-12-01 23:59 AoE\nhttps://ics-conference.org/index.html
-URL:https://ics-conference.org/index.html
+ d deadline: 2026-12-01 23:59 AoE\nhttps://klab-ai3.github.io/ics2027/
+URL:https://klab-ai3.github.io/ics2027/
 END:VEVENT
 BEGIN:VEVENT
 UID:DS-ics-2027-paper-0@castlddl
-DTSTAMP:20261101T172938Z
+DTSTAMP:20261115T182142Z
 DTSTART:20261208T115959Z
 DTEND:20261208T115959Z
 SUMMARY:ICS 2027 paper deadline
 DESCRIPTION:ACM International Conference on Supercomputing\nCCF B\nPublishe
- d deadline: 2026-12-07 23:59 AoE\nhttps://ics-conference.org/index.html
-URL:https://ics-conference.org/index.html
-END:VEVENT
-BEGIN:VEVENT
-UID:DS-ipdps-2027-paper-0@castlddl
-DTSTAMP:20261101T172938Z
-DTSTART:20261009T115959Z
-DTEND:20261009T115959Z
-SUMMARY:IPDPS 2027 paper deadline
-DESCRIPTION:IEEE International Parallel and Distributed Processing Symposiu
- m\nCCF B\nPublished deadline: 2026-10-08 23:59 AoE\nhttps://www.ipdps.org/
-URL:https://www.ipdps.org/
+ d deadline: 2026-12-07 23:59 AoE\nhttps://klab-ai3.github.io/ics2027/
+URL:https://klab-ai3.github.io/ics2027/
 END:VEVENT
 BEGIN:VEVENT
 UID:SE-osdi-2027-abstract-0@castlddl
-DTSTAMP:20261101T172938Z
+DTSTAMP:20261115T182142Z
 DTSTART:20261201T225959Z
 DTEND:20261201T225959Z
 SUMMARY:OSDI 2027 abstract deadline
@@ -49,7 +39,7 @@ URL:https://www.usenix.org/conference/osdi27
 END:VEVENT
 BEGIN:VEVENT
 UID:SE-osdi-2027-paper-0@castlddl
-DTSTAMP:20261101T172938Z
+DTSTAMP:20261115T182142Z
 DTSTART:20261208T225959Z
 DTEND:20261208T225959Z
 SUMMARY:OSDI 2027 paper deadline
